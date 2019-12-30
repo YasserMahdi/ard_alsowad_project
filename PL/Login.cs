@@ -15,5 +15,48 @@ namespace IFarmer.PL
         {
             InitializeComponent();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //checking if users table equal to null 
+                BL.Login.checking checking = new BL.Login.checking();
+                int check = checking.IfUsersTableEqToNull();
+                
+                if (check == 0)
+                {
+                    // then insert dafault role
+                    BL.Login.InsertDefaultRole DefRole = new BL.Login.InsertDefaultRole();
+                    DefRole.InsDefRole("admin");
+                    DefRole.InsDefRole("saler");
+                    
+                    // after that Create first Usert as admin
+                    PL.Register frm = new Register("admin");
+                    frm.ShowDialog();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            BL.Login.log log = new BL.Login.log();
+            string RoleType;
+            RoleType =  log.auth(this.TxtUserName.Text, this.TxtPassCode.Text);
+            if (RoleType == "woring information")
+            {
+                MessageBox.Show(RoleType);
+            }
+            else
+            {
+                PL.MainForm frm = new MainForm(RoleType);
+                frm.Show();
+                this.Hide();
+            }
+        }
     }
 }

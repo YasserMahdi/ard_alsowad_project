@@ -12,12 +12,40 @@ namespace IFarmer.PL
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
+        string role;
         public MainForm()
         {
             InitializeComponent();
         }
+
+        public MainForm(string role)
+        {
+            InitializeComponent();
+            this.role = role;
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //BL.Login.InsertButtonName btn = new BL.Login.InsertButtonName();
+            //btn.InsertBtnName(this);
+            //foreach (var btn in this.Controls.OfType<Bunifu.Framework.UI.BunifuThinButton2>())
+            //{
+            //    btn.Enabled = false;
+            //}
+            //foreach (var btn in this.Controls.OfType<Bunifu.Framework.UI.BunifuTileButton>())
+            //{
+            //    btn.Enabled = false;
+            //}
+            //foreach (var btn in this.Controls.OfType<Bunifu.Framework.UI.BunifuFlatButton>())
+            //{
+            //    btn.Enabled = false;
+            //}
+
+            //BtnServices.Enabled = false;
+
+            if(role != "admin")
+            {
+                BtnLogo.Enabled = false;
+            }
 
         }
 
@@ -118,7 +146,7 @@ namespace IFarmer.PL
 
         private void BtnLogo_Click(object sender, EventArgs e)
         {
-            PL.Debts frm = new Debts();
+            PL.Cpanel frm = new Cpanel();
             frm.ShowDialog();
         }
     }

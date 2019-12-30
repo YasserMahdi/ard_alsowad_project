@@ -15,5 +15,30 @@ namespace IFarmer.PL
         {
             InitializeComponent();
         }
+
+     
+
+        private void Cpanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnUsers_Click(object sender, EventArgs e)
+        {
+            PL.admin.Users frm = new admin.Users();
+            frm.ShowDialog();
+        }
+
+        private void BtnDebts_Click(object sender, EventArgs e)
+        {
+            PL.Debts frm = new Debts();
+            frm.ShowDialog();
+        }
+
+        private void BtnSupliers_Click(object sender, EventArgs e)
+        {
+            PL.Companies frm = new Companies();
+            frm.ShowDialog();
+        }
     }
 }

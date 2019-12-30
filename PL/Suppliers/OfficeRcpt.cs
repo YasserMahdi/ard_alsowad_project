@@ -28,7 +28,7 @@ namespace IFarmer.PL
                 try
                 {
 
-                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(txtMatPrice.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
+                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(TxtSale.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
                 }
                 catch (Exception ex)
                 {
@@ -149,8 +149,8 @@ namespace IFarmer.PL
 
 
                 string totalamount = (from DataGridViewRow row in DataGrid1.Rows
-                                      where row.Cells[3].FormattedValue.ToString() != string.Empty
-                                      select (Convert.ToDouble(row.Cells[3].FormattedValue))).Sum().ToString();
+                                      where row.Cells[4].FormattedValue.ToString() != string.Empty
+                                      select (Convert.ToDouble(row.Cells[4].FormattedValue))).Sum().ToString();
 
                 // txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
                 txtTotal.Text = totalamount;

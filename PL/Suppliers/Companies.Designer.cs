@@ -41,6 +41,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(23, 185);
@@ -54,6 +55,7 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -74,6 +76,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Controls.Add(this.bunifuThinButton22);
             this.groupBox1.Controls.Add(this.bunifuThinButton21);
@@ -91,6 +94,7 @@
             this.btnClose.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnClose.ActiveForecolor = System.Drawing.Color.White;
             this.btnClose.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.ButtonText = "خروج";
@@ -117,6 +121,7 @@
             this.bunifuThinButton22.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton22.ActiveForecolor = System.Drawing.Color.White;
             this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bunifuThinButton22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
             this.bunifuThinButton22.ButtonText = "تعديل معلومات الشركة";
@@ -143,6 +148,7 @@
             this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
             this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.bunifuThinButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
             this.bunifuThinButton21.ButtonText = "اضافة شركة";

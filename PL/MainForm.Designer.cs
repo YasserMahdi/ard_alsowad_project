@@ -43,7 +43,6 @@
             this.bunifuCards3 = new Bunifu.Framework.UI.BunifuCards();
             this.label1 = new System.Windows.Forms.Label();
             this.Btninsert = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.Btnsupliers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnInventory = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnLogo = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuCards1.SuspendLayout();
@@ -216,14 +215,14 @@
             this.BtnUncash.IconVisible = true;
             this.BtnUncash.IconZoom = 60D;
             this.BtnUncash.IsTab = false;
-            this.BtnUncash.Location = new System.Drawing.Point(625, 744);
+            this.BtnUncash.Location = new System.Drawing.Point(72, 283);
             this.BtnUncash.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.BtnUncash.Name = "BtnUncash";
             this.BtnUncash.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.BtnUncash.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.BtnUncash.OnHoverTextColor = System.Drawing.Color.White;
             this.BtnUncash.selected = false;
-            this.BtnUncash.Size = new System.Drawing.Size(297, 84);
+            this.BtnUncash.Size = new System.Drawing.Size(315, 84);
             this.BtnUncash.TabIndex = 10;
             this.BtnUncash.Text = "فاتورة شراء";
             this.BtnUncash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -380,9 +379,9 @@
             this.bunifuCards3.BorderRadius = 5;
             this.bunifuCards3.BottomSahddow = true;
             this.bunifuCards3.color = System.Drawing.Color.Tomato;
+            this.bunifuCards3.Controls.Add(this.BtnUncash);
             this.bunifuCards3.Controls.Add(this.label1);
             this.bunifuCards3.Controls.Add(this.Btninsert);
-            this.bunifuCards3.Controls.Add(this.Btnsupliers);
             this.bunifuCards3.Controls.Add(this.BtnInventory);
             this.bunifuCards3.LeftSahddow = false;
             this.bunifuCards3.Location = new System.Drawing.Point(1006, 334);
@@ -440,43 +439,6 @@
             this.Btninsert.Textcolor = System.Drawing.Color.White;
             this.Btninsert.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btninsert.Click += new System.EventHandler(this.Btninsert_Click);
-            // 
-            // Btnsupliers
-            // 
-            this.Btnsupliers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.Btnsupliers.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Btnsupliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.Btnsupliers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Btnsupliers.BorderRadius = 7;
-            this.Btnsupliers.ButtonText = "المزودين";
-            this.Btnsupliers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnsupliers.DisabledColor = System.Drawing.Color.Gray;
-            this.Btnsupliers.Iconcolor = System.Drawing.Color.Transparent;
-            this.Btnsupliers.Iconimage = ((System.Drawing.Image)(resources.GetObject("Btnsupliers.Iconimage")));
-            this.Btnsupliers.Iconimage_right = null;
-            this.Btnsupliers.Iconimage_right_Selected = null;
-            this.Btnsupliers.Iconimage_Selected = null;
-            this.Btnsupliers.IconMarginLeft = 0;
-            this.Btnsupliers.IconMarginRight = 0;
-            this.Btnsupliers.IconRightVisible = true;
-            this.Btnsupliers.IconRightZoom = 0D;
-            this.Btnsupliers.IconVisible = true;
-            this.Btnsupliers.IconZoom = 60D;
-            this.Btnsupliers.IsTab = false;
-            this.Btnsupliers.Location = new System.Drawing.Point(72, 283);
-            this.Btnsupliers.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.Btnsupliers.Name = "Btnsupliers";
-            this.Btnsupliers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.Btnsupliers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.Btnsupliers.OnHoverTextColor = System.Drawing.Color.White;
-            this.Btnsupliers.selected = false;
-            this.Btnsupliers.Size = new System.Drawing.Size(315, 84);
-            this.Btnsupliers.TabIndex = 6;
-            this.Btnsupliers.Text = "المزودين";
-            this.Btnsupliers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Btnsupliers.Textcolor = System.Drawing.Color.White;
-            this.Btnsupliers.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btnsupliers.Click += new System.EventHandler(this.BtnSupliers_Click);
             // 
             // BtnInventory
             // 
@@ -539,7 +501,6 @@
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuCards2);
             this.Controls.Add(this.bunifuCards3);
-            this.Controls.Add(this.BtnUncash);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
@@ -565,7 +526,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton6;
         private Bunifu.Framework.UI.BunifuFlatButton BtnOrder;
         private Bunifu.Framework.UI.BunifuCards bunifuCards3;
-        private Bunifu.Framework.UI.BunifuFlatButton Btnsupliers;
         private Bunifu.Framework.UI.BunifuFlatButton BtnInventory;
         private Bunifu.Framework.UI.BunifuFlatButton BtnSummary;
         private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton3;

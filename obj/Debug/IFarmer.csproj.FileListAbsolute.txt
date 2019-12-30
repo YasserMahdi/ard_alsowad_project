@@ -153,3 +153,4 @@ C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Regis
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Invoice.NurseryDocument.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.ServiceList.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.ServiceView.resources
+C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.admin.Users.resources

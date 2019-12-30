@@ -96,6 +96,7 @@
             this.BtnLogin.Size = new System.Drawing.Size(181, 41);
             this.BtnLogin.TabIndex = 5;
             this.BtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // Login
             // 
@@ -107,6 +108,7 @@
             this.Controls.Add(this.TxtUserName);
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
 
         }

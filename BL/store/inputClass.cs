@@ -68,12 +68,12 @@ namespace IFarmer.BL
             Dt = accessobject.selectData("getMatirialInfo", null);
             accessobject.close();
 
-            foreach (DataRow row in Dt.Rows)
-            {
-                row["purchasing_price"] = String.Format("{0:n0}", Convert.ToDouble(row["purchasing_price"]));
-                row["selling_price"] = String.Format("{0:n0}", Convert.ToDouble(row["selling_price"]));
+            //foreach (DataRow row in Dt.Rows)
+            //{
+            //    row["purchasing_price"] = String.Format("{0:n0}", Convert.ToDouble(row["purchasing_price"]));
+            //    row["selling_price"] = String.Format("{0:n0}", Convert.ToDouble(row["selling_price"]));
                 
-            }
+            //}
 
 
             return Dt;

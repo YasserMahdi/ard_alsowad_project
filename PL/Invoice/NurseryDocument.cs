@@ -112,15 +112,15 @@ namespace IFarmer.PL.Invoice
             {
                 try
                 {
-                    for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-                    {
-                        if (dataGridView1.Rows[i].Cells[0].Value.ToString() == txtMatNo.Text)
-                        {
-                            MessageBox.Show("هذا المنتج موجود مسبقاً", "تنبية", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            return;
-                        }
+                    //for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+                    //{
+                    //    if (dataGridView1.Rows[i].Cells[0].Value.ToString() == txtMatNo.Text)
+                    //    {
+                    //        MessageBox.Show("هذا المنتج موجود مسبقاً", "تنبية", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //        return;
+                    //    }
 
-                    }
+                    //}
                 }
                 catch (Exception ex)
                 {

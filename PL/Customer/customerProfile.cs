@@ -116,7 +116,7 @@ namespace IFarmer.PL
                 frm.id = this.id;
                 frm.oldDept = Convert.ToDouble(txtDebt.Text);
                 frm.ShowDialog();
-                this.dataGridView1.DataSource = order.notPaidInCash(id);
+                //this.dataGridView1.DataSource = order.notPaidInCash(id);
                 //this.docDataGrid2.DataSource = doc.unPaidDoc(id);
             }
             catch (Exception ex)

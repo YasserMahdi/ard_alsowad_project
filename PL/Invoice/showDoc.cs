@@ -12,7 +12,8 @@ namespace IFarmer.PL
     public partial class showDoc : MetroFramework.Forms.MetroForm
     {
         public int docID;
-        BL.DocumentClass doc = new BL.DocumentClass();
+        //BL.DocumentClass doc = new BL.DocumentClass();
+        BL.orderClass order = new BL.orderClass();
         public showDoc()
         {
             InitializeComponent();
@@ -25,16 +26,15 @@ namespace IFarmer.PL
             {
 
                 //information of order head
-                this.txtID.Text = doc.docHead(docID).Rows[0][0].ToString();
-                this.txtName.Text = doc.docHead(docID).Rows[0][1].ToString();
-                this.txtNote.Text = doc.docHead(docID).Rows[0][2].ToString();
-                this.bunifuDatepicker1.Value = Convert.ToDateTime(doc.docHead(docID).Rows[0][3].ToString());
-                this.txtTotal.Text = doc.docHead(docID).Rows[0][4].ToString();
-                this.txtAmountReceived.Text = doc.docHead(docID).Rows[0][5].ToString();
-                this.txtReamining.Text = doc.docHead(docID).Rows[0][6].ToString();
+                this.txtName.Text = order.showInvoice_head(docID).Rows[0][3].ToString();
+                this.txtNote.Text = order.showInvoice_head(docID).Rows[0][2].ToString();
+                this.txtID.Text = order.showInvoice_head(docID).Rows[0][0].ToString();
+                this.txtTotal.Text = order.showInvoice_head(docID).Rows[0][4].ToString();
+                txtAmountReceived.Text = order.showInvoice_head(docID).Rows[0][5].ToString();
+                this.bunifuDatepicker1.Value = Convert.ToDateTime(order.showInvoice_head(docID).Rows[0][1].ToString());
 
                 //information of order Tail
-                this.dataGridView1.DataSource = doc.docTail(docID);
+                this.dataGridView1.DataSource = order.showInvoice_details(docID);
 
             }
             catch (Exception ex)
