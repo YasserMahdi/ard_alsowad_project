@@ -33,9 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtTotalDebt = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtSale = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtCat = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -52,8 +52,6 @@
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.DataGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtSale = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid1)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +68,7 @@
             this.txtName.LineIdleColor = System.Drawing.Color.Gray;
             this.txtName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.txtName.LineThickness = 3;
-            this.txtName.Location = new System.Drawing.Point(1199, 88);
+            this.txtName.Location = new System.Drawing.Point(1199, 118);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(228, 44);
@@ -80,41 +78,11 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(1434, 115);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(1434, 145);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(91, 17);
             this.bunifuCustomLabel1.TabIndex = 1;
             this.bunifuCustomLabel1.Text = ": اسم الشركة";
-            // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(1434, 184);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(95, 17);
-            this.bunifuCustomLabel2.TabIndex = 3;
-            this.bunifuCustomLabel2.Text = ": مجموع الديون";
-            this.bunifuCustomLabel2.Click += new System.EventHandler(this.bunifuCustomLabel2_Click);
-            // 
-            // txtTotalDebt
-            // 
-            this.txtTotalDebt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTotalDebt.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtTotalDebt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTotalDebt.HintForeColor = System.Drawing.Color.Empty;
-            this.txtTotalDebt.HintText = "";
-            this.txtTotalDebt.isPassword = false;
-            this.txtTotalDebt.LineFocusedColor = System.Drawing.Color.Blue;
-            this.txtTotalDebt.LineIdleColor = System.Drawing.Color.Gray;
-            this.txtTotalDebt.LineMouseHoverColor = System.Drawing.Color.Blue;
-            this.txtTotalDebt.LineThickness = 3;
-            this.txtTotalDebt.Location = new System.Drawing.Point(1199, 157);
-            this.txtTotalDebt.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTotalDebt.Name = "txtTotalDebt";
-            this.txtTotalDebt.Size = new System.Drawing.Size(228, 44);
-            this.txtTotalDebt.TabIndex = 2;
-            this.txtTotalDebt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtTotalDebt.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox1_OnValueChanged);
             // 
             // groupBox1
             // 
@@ -141,6 +109,26 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "طلبية جديدة";
+            // 
+            // TxtSale
+            // 
+            this.TxtSale.Location = new System.Drawing.Point(517, 135);
+            this.TxtSale.Name = "TxtSale";
+            this.TxtSale.Size = new System.Drawing.Size(172, 24);
+            this.TxtSale.TabIndex = 34;
+            this.TxtSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label7.Location = new System.Drawing.Point(517, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 27);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "سعر البيغ";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -341,31 +329,11 @@
             // 
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 24;
-            this.metroComboBox1.Location = new System.Drawing.Point(1199, 222);
+            this.metroComboBox1.Location = new System.Drawing.Point(1199, 244);
             this.metroComboBox1.Name = "metroComboBox1";
             this.metroComboBox1.Size = new System.Drawing.Size(326, 30);
             this.metroComboBox1.TabIndex = 35;
             this.metroComboBox1.UseSelectable = true;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(517, 105);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(172, 27);
-            this.label7.TabIndex = 33;
-            this.label7.Text = "سعر البيغ";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtSale
-            // 
-            this.TxtSale.Location = new System.Drawing.Point(517, 135);
-            this.TxtSale.Name = "TxtSale";
-            this.TxtSale.Size = new System.Drawing.Size(172, 24);
-            this.TxtSale.TabIndex = 34;
-            this.TxtSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // OfficeRcpt
             // 
@@ -374,8 +342,6 @@
             this.ClientSize = new System.Drawing.Size(1550, 884);
             this.Controls.Add(this.metroComboBox1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.bunifuCustomLabel2);
-            this.Controls.Add(this.txtTotalDebt);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.txtName);
             this.Name = "OfficeRcpt";
@@ -392,8 +358,6 @@
         #endregion
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         public Bunifu.Framework.UI.BunifuMaterialTextbox txtName;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
-        public Bunifu.Framework.UI.BunifuMaterialTextbox txtTotalDebt;
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuCustomDataGrid DataGrid1;
         private System.Windows.Forms.Label label5;

@@ -13,6 +13,7 @@ namespace IFarmer.PL
     {
         string UserType;
         string FullName; string UserName; string PassCode; string state; string UserID;
+        string cTime;
 
         BL.Register.AddUser AddUser = new BL.Register.AddUser();
         BL.Register.Update Update = new BL.Register.Update();
@@ -35,11 +36,30 @@ namespace IFarmer.PL
         {
             InitializeComponent();
             this.UserType = UserType;
+            try
+            {
+                this.ComboUserType.Enabled = false;
+                this.BtnRegister.ButtonText = "اضافة مدير للنظام";
+                cTime = "1";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
+            BL.Register.LoadRoleTable role = new BL.Register.LoadRoleTable();
+            int check = role.CheckRole();
+            if(check == 0)
+            {
+                // then insert dafault role
+                BL.Login.InsertDefaultRole DefRole = new BL.Login.InsertDefaultRole();
+                DefRole.InsDefRole("1", "admin");
+                DefRole.InsDefRole("2", "seller");
+            }
             BL.Register.LoadRoleTable LoadRole = new BL.Register.LoadRoleTable();
             this.ComboUserType.DisplayMember = "role_name";
             this.ComboUserType.ValueMember = "role_id";
@@ -52,13 +72,18 @@ namespace IFarmer.PL
             {
                 if (state == "add")
                 {
-                    AddUser.InsertUser(this.TxtFullName.Text, this.TxtUserName.Text, this.TxtPassCode.Text, this.ComboUserType.SelectedIndex.ToString());
+                    AddUser.InsertUser(this.TxtFullName.Text, this.TxtUserName.Text, this.TxtPassCode.Text, this.ComboUserType.SelectedValue.ToString());
                     MessageBox.Show("تمت الاضافة بنجاح ", "عملية الاضافة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 if(state == "update")
                 {
                     Update.UpdateUser(this.TxtFullName.Text, this.TxtUserName.Text, this.TxtPassCode.Text, this.UserID);
                     MessageBox.Show("تمت التحديث بنجاح ", " التحديث", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                if(cTime == "1")
+                {
+                    AddUser.InsertUser(this.TxtFullName.Text, this.TxtUserName.Text, this.TxtPassCode.Text,"1");
+                    MessageBox.Show("تمت الاضافة بنجاح ", "عملية الاضافة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             catch (Exception ex)

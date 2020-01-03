@@ -13,28 +13,31 @@ namespace IFarmer.PL
 {
     public partial class Backup : MetroFramework.Forms.MetroForm
     {
-        SqlConnection conn = new SqlConnection(@"server=.\SQLEXPRESS;database=IFarmer;integrated security=true");
+        SqlConnection conn = new SqlConnection(@"server=.\SQLEXPRESS;database=blackness;integrated security=true");
         SqlCommand cmd;
         public Backup()
         {
             InitializeComponent();
         }
+ 
 
-        private void btnSelectPath_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
-            {
-                textpath.Text = folderBrowserDialog1.SelectedPath;
-            }
+            this.Close();
         }
 
-        private void btnGo_Click(object sender, EventArgs e)
+        private void Backup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGo_Click_1(object sender, EventArgs e)
         {
             try
             {
                 string filename = textpath.Text + "\\BACKUP" + DateTime.Now.ToShortDateString().Replace('/', '-')
                 + DateTime.Now.ToLongDateString().Replace('/', '-');
-                string query = "Backup Database IFarmer to Disk='" + filename + ".bak'";
+                string query = "Backup Database blackness to Disk='" + filename + ".bak'";
                 cmd = new SqlCommand(query, conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -47,7 +50,15 @@ namespace IFarmer.PL
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnSelectPath_Click_1(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textpath.Text = folderBrowserDialog1.SelectedPath;
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

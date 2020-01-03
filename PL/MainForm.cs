@@ -12,7 +12,7 @@ namespace IFarmer.PL
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
-        string role;
+        string role = "admin";
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +42,9 @@ namespace IFarmer.PL
 
             //BtnServices.Enabled = false;
 
-            if(role != "admin")
+             
+
+            if (role != "admin")
             {
                 BtnLogo.Enabled = false;
             }
@@ -61,7 +63,7 @@ namespace IFarmer.PL
             UnCash.Show();
         }
 
-   
+
 
         private void BtnInventory_Clic(object sender, EventArgs e)
         {
@@ -78,7 +80,7 @@ namespace IFarmer.PL
         private void BtnCash_Click_1(object sender, EventArgs e)
         {
             PL.DirSales frm = new DirSales();
-             
+
             frm.ShowDialog();
         }
 
@@ -130,7 +132,7 @@ namespace IFarmer.PL
             frm.ShowDialog();
         }
 
-     
+
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
@@ -149,5 +151,11 @@ namespace IFarmer.PL
             PL.Cpanel frm = new Cpanel();
             frm.ShowDialog();
         }
+
+        ~MainForm()
+        {
+            
+        }
+
     }
 }

@@ -44,6 +44,7 @@
             this.btnGo.TabIndex = 18;
             this.btnGo.Text = "انشاء نسخة احتياطية";
             this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click_1);
             // 
             // button2
             // 
@@ -53,6 +54,7 @@
             this.button2.TabIndex = 17;
             this.button2.Text = "الغاء";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // btnSelectPath
             // 
@@ -62,6 +64,7 @@
             this.btnSelectPath.TabIndex = 16;
             this.btnSelectPath.Text = "...";
             this.btnSelectPath.UseVisualStyleBackColor = true;
+            this.btnSelectPath.Click += new System.EventHandler(this.btnSelectPath_Click_1);
             // 
             // textpath
             // 
@@ -91,6 +94,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Backup";
             this.Text = "Backup";
+            this.Load += new System.EventHandler(this.Backup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

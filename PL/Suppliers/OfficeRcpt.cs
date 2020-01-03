@@ -176,7 +176,7 @@ namespace IFarmer.PL
             
             try
             {
-                this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
+                //this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
                 //set order header
                 comp.add_comp_order(this.txtName.Text, Convert.ToDouble(this.txtTotal.Text));
 
@@ -206,7 +206,7 @@ namespace IFarmer.PL
 
                 }
                 MessageBox.Show("تمت الاضافة بنجاح", "عملية الاضافة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
+                //this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
             }
             catch
             {
@@ -223,7 +223,7 @@ namespace IFarmer.PL
                 frm.state = "dbt";
                 frm.name = txtName.Text;
                 frm.ShowDialog();
-                this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
+                //this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
             }
             catch (Exception ex)
             {

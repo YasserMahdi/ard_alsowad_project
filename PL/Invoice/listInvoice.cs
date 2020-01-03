@@ -12,22 +12,45 @@ namespace IFarmer.PL
 {
     public partial class listInvoice : MetroFramework.Forms.MetroForm
     {
+        string State;
         BL.orderClass order = new BL.orderClass();
         public listInvoice()
         {
             InitializeComponent();
         }
+        public listInvoice(string State)
+        {
+            InitializeComponent();
+            this.State = State;
+
+        }
 
         private void listInvoice_Load(object sender, EventArgs e)
         {
-            try
+            if (State == "update")
             {
-                 dataGridView1.DataSource = order.listinvo();
+                try
+                {
+                    BL.invoices.SelectionOrder SelectionOrder = new BL.invoices.SelectionOrder();
+                    this.dataGridView1.DataSource = SelectionOrder.ListOrders();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    dataGridView1.DataSource = order.listinvo();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+
         }
 
         private void txtSearch_OnValueChanged(object sender, EventArgs e)

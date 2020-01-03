@@ -69,8 +69,8 @@ namespace IFarmer.PL
                 Report.debt rpt = new Report.debt();
                 rpt.SetDataSource(debt.printDebt(id));
                 frm.crystalReportViewer1.ReportSource = rpt;
-                //frm.ShowDialog();
-                frm.crystalReportViewer1.PrintReport();
+                frm.ShowDialog();
+                //frm.crystalReportViewer1.PrintReport();
             }
             catch(Exception ex)
             {

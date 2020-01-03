@@ -47,6 +47,7 @@
             this.BtnRegister.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.BtnRegister.ActiveForecolor = System.Drawing.Color.White;
             this.BtnRegister.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.BtnRegister.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.BtnRegister.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnRegister.BackgroundImage")));
             this.BtnRegister.ButtonText = "REGISTER";
@@ -68,6 +69,7 @@
             // 
             // TxtPassCode
             // 
+            this.TxtPassCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TxtPassCode.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtPassCode.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.TxtPassCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -87,6 +89,7 @@
             // 
             // TxtUserName
             // 
+            this.TxtUserName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TxtUserName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtUserName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.TxtUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -106,6 +109,7 @@
             // 
             // TxtFullName
             // 
+            this.TxtFullName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TxtFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtFullName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.TxtFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -125,6 +129,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(611, 126);
             this.label1.Name = "label1";
@@ -134,6 +139,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(611, 179);
             this.label2.Name = "label2";
@@ -143,6 +149,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(611, 231);
             this.label3.Name = "label3";
@@ -152,6 +159,7 @@
             // 
             // ComboUserType
             // 
+            this.ComboUserType.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboUserType.FormattingEnabled = true;
             this.ComboUserType.ItemHeight = 24;
             this.ComboUserType.Location = new System.Drawing.Point(215, 276);
@@ -162,6 +170,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(611, 289);
             this.label4.Name = "label4";
@@ -185,6 +194,7 @@
             this.Controls.Add(this.TxtUserName);
             this.Name = "Register";
             this.Text = "Register";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Register_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

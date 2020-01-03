@@ -234,6 +234,37 @@ namespace IFarmer.BL
         }
 
 
+        public void add_order_detail_update( string matName, string order_no, int qte, double price, double amount)
+        {
+            DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
+            DAL.open();
+            SqlParameter[] param = new SqlParameter[6];
+
+
+            param[0] = new SqlParameter("@mat_no", SqlDbType.Int);
+            param[0].Value = 0;
+
+            param[1] = new SqlParameter("@order_no", SqlDbType.NVarChar, 50);
+            param[1].Value = order_no;
+
+            param[2] = new SqlParameter("@qte", SqlDbType.Int);
+            param[2].Value = qte;
+
+            param[3] = new SqlParameter("@price", SqlDbType.Money);
+            param[3].Value = price;
+
+            param[4] = new SqlParameter("@amount", SqlDbType.Money);
+            param[4].Value = amount;
+
+            param[5] = new SqlParameter("@mat_name", SqlDbType.NVarChar, 50);
+            param[5].Value = matName;
+
+
+            DAL.Executecmd("add_order_detail", param);
+            DAL.close();
+        }
+
+
 
     }
 }

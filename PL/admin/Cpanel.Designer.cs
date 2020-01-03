@@ -35,9 +35,15 @@
             this.BtnDebts = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnInvoiceUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.BtnRetrievalMaterials = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSupliers
@@ -184,11 +190,108 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "المزودين";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox4.Controls.Add(this.BtnInvoiceUpdate);
+            this.groupBox4.Location = new System.Drawing.Point(351, 416);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(357, 117);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "النسخ الاحتياطي";
+            // 
+            // BtnInvoiceUpdate
+            // 
+            this.BtnInvoiceUpdate.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnInvoiceUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BtnInvoiceUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnInvoiceUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnInvoiceUpdate.BorderRadius = 7;
+            this.BtnInvoiceUpdate.ButtonText = "النسخ الاحتياطي";
+            this.BtnInvoiceUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnInvoiceUpdate.DisabledColor = System.Drawing.Color.Gray;
+            this.BtnInvoiceUpdate.Iconcolor = System.Drawing.Color.Transparent;
+            this.BtnInvoiceUpdate.Iconimage = ((System.Drawing.Image)(resources.GetObject("BtnInvoiceUpdate.Iconimage")));
+            this.BtnInvoiceUpdate.Iconimage_right = null;
+            this.BtnInvoiceUpdate.Iconimage_right_Selected = null;
+            this.BtnInvoiceUpdate.Iconimage_Selected = null;
+            this.BtnInvoiceUpdate.IconMarginLeft = 0;
+            this.BtnInvoiceUpdate.IconMarginRight = 0;
+            this.BtnInvoiceUpdate.IconRightVisible = true;
+            this.BtnInvoiceUpdate.IconRightZoom = 0D;
+            this.BtnInvoiceUpdate.IconVisible = true;
+            this.BtnInvoiceUpdate.IconZoom = 70D;
+            this.BtnInvoiceUpdate.IsTab = false;
+            this.BtnInvoiceUpdate.Location = new System.Drawing.Point(37, 24);
+            this.BtnInvoiceUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnInvoiceUpdate.Name = "BtnInvoiceUpdate";
+            this.BtnInvoiceUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnInvoiceUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.BtnInvoiceUpdate.OnHoverTextColor = System.Drawing.Color.White;
+            this.BtnInvoiceUpdate.selected = false;
+            this.BtnInvoiceUpdate.Size = new System.Drawing.Size(281, 70);
+            this.BtnInvoiceUpdate.TabIndex = 3;
+            this.BtnInvoiceUpdate.Text = "النسخ الاحتياطي";
+            this.BtnInvoiceUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnInvoiceUpdate.Textcolor = System.Drawing.Color.White;
+            this.BtnInvoiceUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnInvoiceUpdate.Click += new System.EventHandler(this.BtnInvoiceUpdate_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox5.Controls.Add(this.BtnRetrievalMaterials);
+            this.groupBox5.Location = new System.Drawing.Point(740, 416);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(357, 117);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "ارجاع مواد";
+            // 
+            // BtnRetrievalMaterials
+            // 
+            this.BtnRetrievalMaterials.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnRetrievalMaterials.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BtnRetrievalMaterials.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnRetrievalMaterials.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnRetrievalMaterials.BorderRadius = 7;
+            this.BtnRetrievalMaterials.ButtonText = "تعديل الفواتير";
+            this.BtnRetrievalMaterials.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRetrievalMaterials.DisabledColor = System.Drawing.Color.Gray;
+            this.BtnRetrievalMaterials.Iconcolor = System.Drawing.Color.Transparent;
+            this.BtnRetrievalMaterials.Iconimage = ((System.Drawing.Image)(resources.GetObject("BtnRetrievalMaterials.Iconimage")));
+            this.BtnRetrievalMaterials.Iconimage_right = null;
+            this.BtnRetrievalMaterials.Iconimage_right_Selected = null;
+            this.BtnRetrievalMaterials.Iconimage_Selected = null;
+            this.BtnRetrievalMaterials.IconMarginLeft = 0;
+            this.BtnRetrievalMaterials.IconMarginRight = 0;
+            this.BtnRetrievalMaterials.IconRightVisible = true;
+            this.BtnRetrievalMaterials.IconRightZoom = 0D;
+            this.BtnRetrievalMaterials.IconVisible = true;
+            this.BtnRetrievalMaterials.IconZoom = 70D;
+            this.BtnRetrievalMaterials.IsTab = false;
+            this.BtnRetrievalMaterials.Location = new System.Drawing.Point(37, 24);
+            this.BtnRetrievalMaterials.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnRetrievalMaterials.Name = "BtnRetrievalMaterials";
+            this.BtnRetrievalMaterials.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnRetrievalMaterials.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.BtnRetrievalMaterials.OnHoverTextColor = System.Drawing.Color.White;
+            this.BtnRetrievalMaterials.selected = false;
+            this.BtnRetrievalMaterials.Size = new System.Drawing.Size(281, 70);
+            this.BtnRetrievalMaterials.TabIndex = 3;
+            this.BtnRetrievalMaterials.Text = "تعديل الفواتير";
+            this.BtnRetrievalMaterials.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnRetrievalMaterials.Textcolor = System.Drawing.Color.White;
+            this.BtnRetrievalMaterials.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
             // Cpanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 700);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -198,6 +301,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -210,5 +315,9 @@
         private Bunifu.Framework.UI.BunifuFlatButton BtnDebts;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private Bunifu.Framework.UI.BunifuFlatButton BtnInvoiceUpdate;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private Bunifu.Framework.UI.BunifuFlatButton BtnRetrievalMaterials;
     }
 }

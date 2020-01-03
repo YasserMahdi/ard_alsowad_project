@@ -16,7 +16,7 @@ namespace IFarmer.PL
         BL.orderClass order = new BL.orderClass();
         BL.debtClass debt = new BL.debtClass();
         BL.DocumentClass doc = new BL.DocumentClass();
-
+        string State;
         private void UpDateInfo()
         {
             this.dataGridView1.DataSource = debt.StatementOfAccount(id);
@@ -26,15 +26,22 @@ namespace IFarmer.PL
 
 
             //this.docDataGrid2.DataSource = doc.unPaidDoc(id);
-            this.txtDebt.Text = string.Format("{0:n0}", (debt.getTotalInvDebt(id)  ));
+            this.txtDebt.Text = string.Format("{0:n0}", (debt.getTotalInvDebt(id)));
         }
         public customerProfile()
         {
             InitializeComponent();
         }
+        // state = RetrievalMaterials
+        public customerProfile(string State)
+        {
+            InitializeComponent();
+            this.State = State;
+        }
 
         private void customerProfile_Load(object sender, EventArgs e)
         {
+
             try
             {
                 UpDateInfo();
@@ -43,10 +50,11 @@ namespace IFarmer.PL
             {
 
             }
-            
+
+
         }
 
- 
+
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
@@ -60,7 +68,7 @@ namespace IFarmer.PL
         {
             this.Close();
         }
- 
+
         private void btnREP_Click(object sender, EventArgs e)
         {
             try
@@ -75,15 +83,15 @@ namespace IFarmer.PL
                 frm.ShowDialog();
                 UpDateInfo();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
-  
 
-       
+
+
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
@@ -105,7 +113,7 @@ namespace IFarmer.PL
 
         private void BtnInsertNewDebt_Click(object sender, EventArgs e)
         {
-             
+
         }
 
         private void BtnDebtsBrows_Click(object sender, EventArgs e)
@@ -123,6 +131,48 @@ namespace IFarmer.PL
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (State == "RetrievalMaterials")
+            {
+
+                try
+                {
+                    PL.updateInvoice frm = new updateInvoice();
+                    frm.id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
+                    frm.ShowDialog();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                try
+                {
+                    PL.showInvoice frm = new showInvoice();
+                    frm.id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                    frm.txtName.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    frm.txtNote.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    frm.txtID.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    frm.txtTotal.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    frm.txtAmountReceived.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    frm.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void statementOfAcount_Click(object sender, EventArgs e)
+        {
+            PL.Customer.statementOfAcount frm = new Customer.statementOfAcount(this.id.ToString());
+            frm.ShowDialog();
         }
     }
 }

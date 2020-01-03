@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.BtnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnModify = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnAdd = new Bunifu.Framework.UI.BunifuThinButton2();
             this.metroGrid1 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
@@ -67,7 +67,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.bunifuThinButton21);
+            this.groupBox1.Controls.Add(this.BtnClose);
             this.groupBox1.Controls.Add(this.btnModify);
             this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Location = new System.Drawing.Point(105, 722);
@@ -77,32 +77,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "العمليات اللمكن تنفيذها";
             // 
-            // bunifuThinButton21
+            // BtnClose
             // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "خروج";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(389, 27);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(181, 41);
-            this.bunifuThinButton21.TabIndex = 3;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
+            this.BtnClose.ActiveBorderThickness = 1;
+            this.BtnClose.ActiveCornerRadius = 20;
+            this.BtnClose.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.ActiveForecolor = System.Drawing.Color.White;
+            this.BtnClose.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.BtnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnClose.BackgroundImage")));
+            this.BtnClose.ButtonText = "خروج";
+            this.BtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnClose.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClose.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.IdleBorderThickness = 1;
+            this.BtnClose.IdleCornerRadius = 20;
+            this.BtnClose.IdleFillColor = System.Drawing.Color.White;
+            this.BtnClose.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.BtnClose.Location = new System.Drawing.Point(389, 27);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(181, 41);
+            this.BtnClose.TabIndex = 3;
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnClose.Click += new System.EventHandler(this.bunifuThinButton21_Click);
             // 
             // btnModify
             // 
@@ -222,7 +222,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnModify;
         private Bunifu.Framework.UI.BunifuThinButton2 btnAdd;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        private Bunifu.Framework.UI.BunifuThinButton2 BtnClose;
         private Bunifu.Framework.UI.BunifuCustomDataGrid metroGrid1;
     }
 }

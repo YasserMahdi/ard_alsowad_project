@@ -341,6 +341,7 @@
             this.txtMatPrice.Size = new System.Drawing.Size(277, 24);
             this.txtMatPrice.TabIndex = 12;
             this.txtMatPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMatPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQte_KeyDown);
             this.txtMatPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatPrice_KeyPress);
             this.txtMatPrice.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMatPrice_KeyUp);
             // 

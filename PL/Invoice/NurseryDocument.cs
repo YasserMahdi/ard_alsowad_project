@@ -348,11 +348,14 @@ namespace IFarmer.PL.Invoice
         private void NurseryDocument_Load(object sender, EventArgs e)
         {
             txtID.Text = order.getIDforInvoice().Rows[0][0].ToString();
+            this.bunifuDatepicker1.Value = DateTime.Now;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+       
     }
 }

@@ -20,20 +20,19 @@ namespace IFarmer.PL
             InitializeComponent();
         }
 
-        private void btnSelectPath_Click(object sender, EventArgs e)
+    
+ 
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                textpath.Text = openFileDialog1.FileName;
-            }
+            this.Close();
         }
 
-        private void btnGO_Click(object sender, EventArgs e)
+        private void btnGO_Click_1(object sender, EventArgs e)
         {
             try
             {
 
-                string query = "ALTER Database IFarmer SET OFFLINE WITH ROLLBACK IMMEDIATE ; Restore Database IFarmer from Disk='" + textpath.Text + "'";
+                string query = "ALTER Database blackness SET OFFLINE WITH ROLLBACK IMMEDIATE ; Restore Database blackness from Disk='" + textpath.Text + "'";
                 cmd = new SqlCommand(query, conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
@@ -46,7 +45,15 @@ namespace IFarmer.PL
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnSelectPath_Click_1(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textpath.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

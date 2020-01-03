@@ -13,7 +13,7 @@ namespace IFarmer.BL.Login
         public int IfUsersTableEqToNull()
         {
             DataTable Dt = selusr.SelUsers();
-            if (Dt.Equals(null))
+            if (Dt.Rows.Count<1)
             {
                 return 0;
             }

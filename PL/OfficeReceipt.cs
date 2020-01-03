@@ -29,7 +29,7 @@ namespace IFarmer.PL
             try
             {
                 frm.txtName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                frm.txtTotalDebt.Text = dbt.fetchCompaniesDebts(dataGridView1.CurrentRow.Cells[1].Value.ToString()).Rows[0][0].ToString();
+                //frm.txtTotalDebt.Text = dbt.fetchCompaniesDebts(dataGridView1.CurrentRow.Cells[1].Value.ToString()).Rows[0][0].ToString();
             }
             catch(Exception ex)
             {

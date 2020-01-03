@@ -66,6 +66,7 @@
             this.btnGO.TabIndex = 18;
             this.btnGO.Text = "استعادة النسخة الاحتياطية";
             this.btnGO.UseVisualStyleBackColor = true;
+            this.btnGO.Click += new System.EventHandler(this.btnGO_Click_1);
             // 
             // btnCancel
             // 
@@ -75,6 +76,7 @@
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "الغاء";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click_1);
             // 
             // btnSelectPath
             // 
@@ -84,6 +86,7 @@
             this.btnSelectPath.TabIndex = 16;
             this.btnSelectPath.Text = "...";
             this.btnSelectPath.UseVisualStyleBackColor = true;
+            this.btnSelectPath.Click += new System.EventHandler(this.btnSelectPath_Click_1);
             // 
             // textpath
             // 

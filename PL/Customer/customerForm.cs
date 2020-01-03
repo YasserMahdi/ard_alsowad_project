@@ -14,10 +14,21 @@ namespace IFarmer.PL
     {
         BL.CustomerClass customer = new BL.CustomerClass();
         BL.debtClass debt = new BL.debtClass();
-
+        string State;
         public customerForm()
         {
             InitializeComponent();
+        }
+        //RetrievalMaterials
+
+        public customerForm(string State)
+        {
+            InitializeComponent();
+            this.State = State;
+            this.btnAdd.Hide();
+            this.btnModify.Hide();
+            this.BtnClose.Hide();
+            this.groupBox1.Hide();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -35,18 +46,36 @@ namespace IFarmer.PL
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
-            PL.customerProfile frm = new customerProfile();
-            try
+            if (State == "RetrievalMaterials")
             {
-                frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
-                frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
-                
+                PL.customerProfile frm = new customerProfile(State);
+                try
+                {
+                    frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
+                    frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
+
+                }
+                catch
+                {
+
+                }
+                frm.ShowDialog();
             }
-            catch
+            else
             {
-               
+                PL.customerProfile frm = new customerProfile();
+                try
+                {
+                    frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
+                    frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
+
+                }
+                catch
+                {
+
+                }
+                frm.ShowDialog();
             }
-            frm.ShowDialog();
         }
 
         private void btnModify_Click(object sender, EventArgs e)

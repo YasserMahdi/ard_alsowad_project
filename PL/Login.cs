@@ -11,13 +11,39 @@ namespace IFarmer.PL
 {
     public partial class Login : MetroFramework.Forms.MetroForm
     {
+        public static Login frm;
+
+        static void frm_frmclose(object sender, FormClosedEventArgs e)
+        {
+            frm = null;
+        }
+        public static Login GetLoginForm
+        {
+            get
+            {
+                if (frm == null)
+                {
+                    frm = new Login();
+                    frm.FormClosed += new FormClosedEventHandler(frm_frmclose);
+                    
+
+                }
+                return frm;
+            }
+        }
         public Login()
         {
             InitializeComponent();
+            if(frm == null)
+            {
+                frm = this;
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            //this.TxtPassCode.isPassword = true;
+            
             try
             {
                 //checking if users table equal to null 
@@ -26,10 +52,7 @@ namespace IFarmer.PL
                 
                 if (check == 0)
                 {
-                    // then insert dafault role
-                    BL.Login.InsertDefaultRole DefRole = new BL.Login.InsertDefaultRole();
-                    DefRole.InsDefRole("admin");
-                    DefRole.InsDefRole("saler");
+                    
                     
                     // after that Create first Usert as admin
                     PL.Register frm = new Register("admin");
@@ -44,18 +67,32 @@ namespace IFarmer.PL
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
-            BL.Login.log log = new BL.Login.log();
-            string RoleType;
-            RoleType =  log.auth(this.TxtUserName.Text, this.TxtPassCode.Text);
-            if (RoleType == "woring information")
+
+        }
+
+        private void BtnLogin_Click_1(object sender, EventArgs e)
+        {
+            try
             {
-                MessageBox.Show(RoleType);
+                BL.Login.log log = new BL.Login.log();
+                string RoleType;
+                RoleType = log.auth(this.TxtUserName.Text, this.TxtPassCode.Text);
+                if (RoleType == "woring information")
+                {
+                    MessageBox.Show(RoleType);
+                }
+                else
+                {
+                    PL.MainForm frm = new MainForm(RoleType);
+                    this.Hide();
+                    frm.ShowDialog();
+                    this.Close();
+
+                }
             }
-            else
+            catch (Exception ex)
             {
-                PL.MainForm frm = new MainForm(RoleType);
-                frm.Show();
-                this.Hide();
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -163,7 +163,7 @@
             this.BtnCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.BtnCash.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnCash.BorderRadius = 7;
-            this.BtnCash.ButtonText = "فاتورة بيع";
+            this.BtnCash.ButtonText = "فاتورة المبيعات";
             this.BtnCash.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCash.DisabledColor = System.Drawing.Color.Gray;
             this.BtnCash.Iconcolor = System.Drawing.Color.Transparent;
@@ -187,7 +187,7 @@
             this.BtnCash.selected = false;
             this.BtnCash.Size = new System.Drawing.Size(297, 84);
             this.BtnCash.TabIndex = 9;
-            this.BtnCash.Text = "فاتورة بيع";
+            this.BtnCash.Text = "فاتورة المبيعات";
             this.BtnCash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnCash.Textcolor = System.Drawing.Color.White;
             this.BtnCash.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -281,7 +281,7 @@
             this.BtnServices.IconRightVisible = true;
             this.BtnServices.IconRightZoom = 0D;
             this.BtnServices.IconVisible = true;
-            this.BtnServices.IconZoom = 60D;
+            this.BtnServices.IconZoom = 70D;
             this.BtnServices.IsTab = false;
             this.BtnServices.Location = new System.Drawing.Point(66, 189);
             this.BtnServices.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -318,7 +318,7 @@
             this.bunifuFlatButton6.IconRightVisible = true;
             this.bunifuFlatButton6.IconRightZoom = 0D;
             this.bunifuFlatButton6.IconVisible = true;
-            this.bunifuFlatButton6.IconZoom = 60D;
+            this.bunifuFlatButton6.IconZoom = 65D;
             this.bunifuFlatButton6.IsTab = false;
             this.bunifuFlatButton6.Location = new System.Drawing.Point(66, 283);
             this.bunifuFlatButton6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
@@ -342,7 +342,7 @@
             this.BtnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.BtnOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnOrder.BorderRadius = 7;
-            this.BtnOrder.ButtonText = " البيع النقدي";
+            this.BtnOrder.ButtonText = "فاتورة المبيعات";
             this.BtnOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnOrder.DisabledColor = System.Drawing.Color.Gray;
             this.BtnOrder.Iconcolor = System.Drawing.Color.Transparent;
@@ -366,7 +366,7 @@
             this.BtnOrder.selected = false;
             this.BtnOrder.Size = new System.Drawing.Size(297, 84);
             this.BtnOrder.TabIndex = 5;
-            this.BtnOrder.Text = " البيع النقدي";
+            this.BtnOrder.Text = "فاتورة المبيعات";
             this.BtnOrder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnOrder.Textcolor = System.Drawing.Color.White;
             this.BtnOrder.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

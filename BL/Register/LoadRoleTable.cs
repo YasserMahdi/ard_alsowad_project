@@ -21,5 +21,25 @@ namespace IFarmer.BL.Register
 
             return Dt;
         }
+
+        public int CheckRole()
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("select_role", null);
+            accessobject.close();
+
+            if (Dt.Rows.Count < 1)
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
+        }
     }
 }

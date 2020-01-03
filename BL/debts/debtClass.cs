@@ -501,7 +501,7 @@ namespace IFarmer.BL
         public DataTable printDebt(int cus_id)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
-            double totalDoc = getTotalDocDebt(cus_id);
+      
             double totalInv = getTotalInvDebt(cus_id);
 
 
@@ -514,9 +514,9 @@ namespace IFarmer.BL
             Dt = accessobject.selectData("printDebt", param);
             accessobject.close();
             DataRow r = Dt.NewRow();
-            r[1] = string.Format("{0:n0}", (totalInv+totalDoc));
-            r[6] = string.Format("{0:n0}", totalDoc.ToString());
-            r[7] = string.Format("{0:n0}", totalInv.ToString());
+            //r[1] = string.Format("{0:n0}", (totalInv+totalDoc));
+            //r[6] = string.Format("{0:n0}", totalDoc.ToString());
+            r[0] = string.Format("{0:n0}", totalInv.ToString());
             Dt.Rows.Add(r);
             return Dt;
 

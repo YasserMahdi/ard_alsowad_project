@@ -38,6 +38,7 @@
             this.btnREP = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.statementOfAcount = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             this.BtnInsertNewDebt.IdleFillColor = System.Drawing.Color.White;
             this.BtnInsertNewDebt.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.BtnInsertNewDebt.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.BtnInsertNewDebt.Location = new System.Drawing.Point(696, 696);
+            this.BtnInsertNewDebt.Location = new System.Drawing.Point(796, 701);
             this.BtnInsertNewDebt.Margin = new System.Windows.Forms.Padding(5);
             this.BtnInsertNewDebt.Name = "BtnInsertNewDebt";
             this.BtnInsertNewDebt.Size = new System.Drawing.Size(228, 41);
@@ -148,7 +149,7 @@
             this.BtnDebtsBrows.IdleFillColor = System.Drawing.Color.White;
             this.BtnDebtsBrows.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.BtnDebtsBrows.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.BtnDebtsBrows.Location = new System.Drawing.Point(458, 696);
+            this.BtnDebtsBrows.Location = new System.Drawing.Point(558, 701);
             this.BtnDebtsBrows.Margin = new System.Windows.Forms.Padding(5);
             this.BtnDebtsBrows.Name = "BtnDebtsBrows";
             this.BtnDebtsBrows.Size = new System.Drawing.Size(228, 41);
@@ -175,7 +176,7 @@
             this.btnREP.IdleFillColor = System.Drawing.Color.White;
             this.btnREP.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnREP.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnREP.Location = new System.Drawing.Point(934, 696);
+            this.btnREP.Location = new System.Drawing.Point(1034, 701);
             this.btnREP.Margin = new System.Windows.Forms.Padding(5);
             this.btnREP.Name = "btnREP";
             this.btnREP.Size = new System.Drawing.Size(181, 41);
@@ -206,12 +207,41 @@
             this.dataGridView1.RowTemplate.Height = 26;
             this.dataGridView1.Size = new System.Drawing.Size(1498, 448);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // statementOfAcount
+            // 
+            this.statementOfAcount.ActiveBorderThickness = 1;
+            this.statementOfAcount.ActiveCornerRadius = 20;
+            this.statementOfAcount.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.statementOfAcount.ActiveForecolor = System.Drawing.Color.White;
+            this.statementOfAcount.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.statementOfAcount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.statementOfAcount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.statementOfAcount.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("statementOfAcount.BackgroundImage")));
+            this.statementOfAcount.ButtonText = "كشف حساب";
+            this.statementOfAcount.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.statementOfAcount.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statementOfAcount.ForeColor = System.Drawing.Color.SeaGreen;
+            this.statementOfAcount.IdleBorderThickness = 1;
+            this.statementOfAcount.IdleCornerRadius = 20;
+            this.statementOfAcount.IdleFillColor = System.Drawing.Color.White;
+            this.statementOfAcount.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.statementOfAcount.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.statementOfAcount.Location = new System.Drawing.Point(320, 701);
+            this.statementOfAcount.Margin = new System.Windows.Forms.Padding(5);
+            this.statementOfAcount.Name = "statementOfAcount";
+            this.statementOfAcount.Size = new System.Drawing.Size(228, 41);
+            this.statementOfAcount.TabIndex = 45;
+            this.statementOfAcount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.statementOfAcount.Click += new System.EventHandler(this.statementOfAcount_Click);
             // 
             // customerProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1550, 900);
+            this.Controls.Add(this.statementOfAcount);
             this.Controls.Add(this.btnREP);
             this.Controls.Add(this.BtnDebtsBrows);
             this.Controls.Add(this.BtnInsertNewDebt);
@@ -240,5 +270,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnREP;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Bunifu.Framework.UI.BunifuThinButton2 statementOfAcount;
     }
 }

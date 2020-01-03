@@ -76,6 +76,11 @@
     <Compile Include="BL\auth\InsertRoll.cs" />
     <Compile Include="BL\auth\Permissions.cs" />
     <Compile Include="BL\CatClass.cs" />
+    <Compile Include="BL\Customer\statementOFAcount.cs" />
+    <Compile Include="BL\invoices\DeleteMaterials.cs" />
+    <Compile Include="BL\invoices\SelectionOrder.cs" />
+    <Compile Include="BL\invoices\UpdateDebtsAffterDeleteOrderMat.cs" />
+    <Compile Include="BL\invoices\UpdateOrder.cs" />
     <Compile Include="BL\Login\checking.cs" />
     <Compile Include="BL\Login\InsertButtonName.cs" />
     <Compile Include="BL\Login\InsertDefaultRole.cs" />
@@ -83,27 +88,28 @@
     <Compile Include="BL\Register\AddUser.cs" />
     <Compile Include="BL\Register\LoadRoleTable.cs" />
     <Compile Include="BL\Register\Update.cs" />
+    <Compile Include="BL\Reports\FullStatement.cs" />
     <Compile Include="BL\services\insertion.cs" />
     <Compile Include="BL\services\searching.cs" />
     <Compile Include="BL\services\selection.cs" />
-    <Compile Include="BL\StoresaMnagement.cs" />
+    <Compile Include="BL\store\StoresaMnagement.cs" />
     <Compile Include="BL\store\categories.cs" />
     <Compile Include="BL\suppliers\CompaniesClass.cs" />
-    <Compile Include="BL\CustomerClass.cs" />
-    <Compile Include="BL\debtClass.cs" />
+    <Compile Include="BL\Customer\CustomerClass.cs" />
+    <Compile Include="BL\debts\debtClass.cs" />
     <Compile Include="BL\invoices\DocumentClass.cs" />
     <Compile Include="BL\Expenses.cs" />
     <Compile Include="BL\invoices\orderClass.cs" />
-    <Compile Include="BL\Report.cs" />
+    <Compile Include="BL\Reports\Report.cs" />
     <Compile Include="BL\Seasons.cs" />
     <Compile Include="BL\store\inputClass.cs" />
     <Compile Include="BL\invoices\updateDocument.cs" />
     <Compile Include="BL\invoices\updateInvoce.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
-    <Compile Include="PL\AddStore.cs">
+    <Compile Include="PL\Inventory\AddStore.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\AddStore.Designer.cs">
+    <Compile Include="PL\Inventory\AddStore.Designer.cs">
       <DependentUpon>AddStore.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\admin\Backup.cs">
@@ -124,11 +130,17 @@
     <Compile Include="PL\categoriesQue.Designer.cs">
       <DependentUpon>categoriesQue.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Cpanel.cs">
+    <Compile Include="PL\admin\Cpanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Cpanel.Designer.cs">
+    <Compile Include="PL\admin\Cpanel.Designer.cs">
       <DependentUpon>Cpanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Customer\statementOfAcount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Customer\statementOfAcount.Designer.cs">
+      <DependentUpon>statementOfAcount.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Invoice\NurseryDocument.cs">
       <SubType>Form</SubType>
@@ -426,12 +438,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\AccountStatement.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccountStatement.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Report\debt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -450,6 +456,18 @@
     <Compile Include="Report\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\StatOfAccount.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatOfAccount.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\statOdAccByDate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>statOdAccByDate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\UnpaidDocuments.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -462,7 +480,7 @@
       <DependentUpon>unpaidInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="PL\AddStore.resx">
+    <EmbeddedResource Include="PL\Inventory\AddStore.resx">
       <DependentUpon>AddStore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\admin\Backup.resx">
@@ -474,8 +492,11 @@
     <EmbeddedResource Include="PL\categoriesQue.resx">
       <DependentUpon>categoriesQue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Cpanel.resx">
+    <EmbeddedResource Include="PL\admin\Cpanel.resx">
       <DependentUpon>Cpanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Customer\statementOfAcount.resx">
+      <DependentUpon>statementOfAcount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Invoice\NurseryDocument.resx">
       <DependentUpon>NurseryDocument.cs</DependentUpon>
@@ -631,10 +652,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report\AccountStatement.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AccountStatement.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Report\debt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>debt.cs</LastGenOutput>
@@ -645,6 +662,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\StatOfAccount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StatOfAccount.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\statOdAccByDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>statOdAccByDate.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\UnpaidDocuments.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -676,8 +701,6 @@
     <Content Include="icons8_accounting_80_AGO_icon.ico" />
     <Content Include="photo_icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL\debts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

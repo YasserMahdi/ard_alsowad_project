@@ -16,14 +16,14 @@ namespace IFarmer.Report {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class AccountStatement : ReportClass {
+    public class StatOfAccount : ReportClass {
         
-        public AccountStatement() {
+        public StatOfAccount() {
         }
         
         public override string ResourceName {
             get {
-                return "AccountStatement.rpt";
+                return "StatOfAccount.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace IFarmer.Report {
         
         public override string FullResourceName {
             get {
-                return "IFarmer.Report.AccountStatement.rpt";
+                return "IFarmer.Report.StatOfAccount.rpt";
             }
             set {
                 // Do nothing
@@ -90,17 +90,25 @@ namespace IFarmer.Report {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_user_id {
+        public CrystalDecisions.Shared.IParameterField Parameter_id {
             get {
                 return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_customer_id {
+            get {
+                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedAccountStatement : Component, ICachedReport {
+    public class CachedStatOfAccount : Component, ICachedReport {
         
-        public CachedAccountStatement() {
+        public CachedStatOfAccount() {
         }
         
         [Browsable(false)]
@@ -137,7 +145,7 @@ namespace IFarmer.Report {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            AccountStatement rpt = new AccountStatement();
+            StatOfAccount rpt = new StatOfAccount();
             rpt.Site = this.Site;
             return rpt;
         }

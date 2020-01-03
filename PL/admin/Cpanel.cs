@@ -40,5 +40,13 @@ namespace IFarmer.PL
             PL.Companies frm = new Companies();
             frm.ShowDialog();
         }
+
+        private void BtnInvoiceUpdate_Click(object sender, EventArgs e)
+        {
+            PL.Backup frm = new Backup();
+            frm.ShowDialog();
+        }
+
+       
     }
 }
