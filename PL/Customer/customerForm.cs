@@ -52,7 +52,7 @@ namespace IFarmer.PL
                 try
                 {
                     frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
-                    frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
+                    frm.CustomerNo = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
 
                 }
                 catch
@@ -67,7 +67,7 @@ namespace IFarmer.PL
                 try
                 {
                     frm.txtName.Text = this.metroGrid1.CurrentRow.Cells[1].Value.ToString();
-                    frm.id = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
+                    frm.CustomerNo = Convert.ToInt32(this.metroGrid1.CurrentRow.Cells[0].Value);
 
                 }
                 catch
@@ -91,7 +91,14 @@ namespace IFarmer.PL
 
         private void customerForm_Load(object sender, EventArgs e)
         {
-            this.metroGrid1.DataSource = customer.getCustomerInfo();
+            try
+            {
+                this.metroGrid1.DataSource = customer.getCustomerInfo();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtSearch_OnValueChanged(object sender, EventArgs e)

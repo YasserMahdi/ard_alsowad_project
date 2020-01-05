@@ -77,6 +77,8 @@
     <Compile Include="BL\auth\Permissions.cs" />
     <Compile Include="BL\CatClass.cs" />
     <Compile Include="BL\Customer\statementOFAcount.cs" />
+    <Compile Include="BL\debts\InsertNewDebts.cs" />
+    <Compile Include="BL\invoices\Checking.cs" />
     <Compile Include="BL\invoices\DeleteMaterials.cs" />
     <Compile Include="BL\invoices\SelectionOrder.cs" />
     <Compile Include="BL\invoices\UpdateDebtsAffterDeleteOrderMat.cs" />
@@ -88,12 +90,15 @@
     <Compile Include="BL\Register\AddUser.cs" />
     <Compile Include="BL\Register\LoadRoleTable.cs" />
     <Compile Include="BL\Register\Update.cs" />
+    <Compile Include="BL\Reports\DebtReports.cs" />
     <Compile Include="BL\Reports\FullStatement.cs" />
+    <Compile Include="BL\Reports\SearchStatement.cs" />
     <Compile Include="BL\services\insertion.cs" />
     <Compile Include="BL\services\searching.cs" />
     <Compile Include="BL\services\selection.cs" />
     <Compile Include="BL\store\StoresaMnagement.cs" />
     <Compile Include="BL\store\categories.cs" />
+    <Compile Include="BL\store\Updater.cs" />
     <Compile Include="BL\suppliers\CompaniesClass.cs" />
     <Compile Include="BL\Customer\CustomerClass.cs" />
     <Compile Include="BL\debts\debtClass.cs" />
@@ -106,10 +111,16 @@
     <Compile Include="BL\invoices\updateDocument.cs" />
     <Compile Include="BL\invoices\updateInvoce.cs" />
     <Compile Include="DAL\DataAccessLayer.cs" />
-    <Compile Include="PL\Inventory\AddStore.cs">
+    <Compile Include="PL\InsertNewDebt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Inventory\AddStore.Designer.cs">
+    <Compile Include="PL\InsertNewDebt.Designer.cs">
+      <DependentUpon>InsertNewDebt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Inventorys\AddStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Inventorys\AddStore.Designer.cs">
       <DependentUpon>AddStore.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\admin\Backup.cs">
@@ -141,6 +152,12 @@
     </Compile>
     <Compile Include="PL\Customer\statementOfAcount.Designer.cs">
       <DependentUpon>statementOfAcount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\Inventorys\ModifyM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\Inventorys\ModifyM.Designer.cs">
+      <DependentUpon>ModifyM.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Invoice\NurseryDocument.cs">
       <SubType>Form</SubType>
@@ -256,10 +273,10 @@
     <Compile Include="PL\Invoice\DirSales.Designer.cs">
       <DependentUpon>DirSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Inventory\DisplayMaterials.cs">
+    <Compile Include="PL\Inventorys\DisplayMaterials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Inventory\DisplayMaterials.Designer.cs">
+    <Compile Include="PL\Inventorys\DisplayMaterials.Designer.cs">
       <DependentUpon>DisplayMaterials.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\Invoice\documens.cs">
@@ -328,10 +345,10 @@
     <Compile Include="PL\Invoice\listInvoice.Designer.cs">
       <DependentUpon>listInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Inventory\listMat.cs">
+    <Compile Include="PL\Inventorys\listMat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Inventory\listMat.Designer.cs">
+    <Compile Include="PL\Inventorys\listMat.Designer.cs">
       <DependentUpon>listMat.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\losses.cs">
@@ -382,16 +399,16 @@
     <Compile Include="PL\season\Seasons.Designer.cs">
       <DependentUpon>Seasons.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Inventory\Inventory.cs">
+    <Compile Include="PL\Inventorys\Inventory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Inventory\Inventory.Designer.cs">
+    <Compile Include="PL\Inventorys\Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Inventory\DataEntry.cs">
+    <Compile Include="PL\Inventorys\DataEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Inventory\DataEntry.Designer.cs">
+    <Compile Include="PL\Inventorys\DataEntry.Designer.cs">
       <DependentUpon>DataEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\selExpenses.cs">
@@ -424,10 +441,10 @@
     <Compile Include="PL\Invoice\updateInvoice.Designer.cs">
       <DependentUpon>updateInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="PL\Inventory\updateTypes.cs">
+    <Compile Include="PL\Inventorys\updateTypes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PL\Inventory\updateTypes.Designer.cs">
+    <Compile Include="PL\Inventorys\updateTypes.Designer.cs">
       <DependentUpon>updateTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="PL\UpdateStoreName.cs">
@@ -450,11 +467,29 @@
       <DependentUpon>invoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\PrintDebts.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintDebts.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report\ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\SStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\StateOfAccountByDate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StateOfAccountByDate.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\StatOfAccount.cs">
       <AutoGen>True</AutoGen>
@@ -480,7 +515,10 @@
       <DependentUpon>unpaidInvoice.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="PL\Inventory\AddStore.resx">
+    <EmbeddedResource Include="PL\InsertNewDebt.resx">
+      <DependentUpon>InsertNewDebt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Inventorys\AddStore.resx">
       <DependentUpon>AddStore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\admin\Backup.resx">
@@ -497,6 +535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Customer\statementOfAcount.resx">
       <DependentUpon>statementOfAcount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\Inventorys\ModifyM.resx">
+      <DependentUpon>ModifyM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Invoice\NurseryDocument.resx">
       <DependentUpon>NurseryDocument.cs</DependentUpon>
@@ -555,7 +596,7 @@
     <EmbeddedResource Include="PL\Invoice\DirSales.resx">
       <DependentUpon>DirSales.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Inventory\DisplayMaterials.resx">
+    <EmbeddedResource Include="PL\Inventorys\DisplayMaterials.resx">
       <DependentUpon>DisplayMaterials.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\Invoice\documens.resx">
@@ -591,7 +632,7 @@
     <EmbeddedResource Include="PL\Invoice\listInvoice.resx">
       <DependentUpon>listInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Inventory\listMat.resx">
+    <EmbeddedResource Include="PL\Inventorys\listMat.resx">
       <DependentUpon>listMat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\MainForm.resx">
@@ -615,10 +656,10 @@
     <EmbeddedResource Include="PL\season\Seasons.resx">
       <DependentUpon>Seasons.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Inventory\Inventory.resx">
+    <EmbeddedResource Include="PL\Inventorys\Inventory.resx">
       <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Inventory\DataEntry.resx">
+    <EmbeddedResource Include="PL\Inventorys\DataEntry.resx">
       <DependentUpon>DataEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\selExpenses.resx">
@@ -636,7 +677,7 @@
     <EmbeddedResource Include="PL\Invoice\updateInvoice.resx">
       <DependentUpon>updateInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PL\Inventory\updateTypes.resx">
+    <EmbeddedResource Include="PL\Inventorys\updateTypes.resx">
       <DependentUpon>updateTypes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PL\UpdateStoreName.resx">
@@ -660,8 +701,20 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>invoice.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\PrintDebts.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrintDebts.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\SStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\StateOfAccountByDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StateOfAccountByDate.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\StatOfAccount.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

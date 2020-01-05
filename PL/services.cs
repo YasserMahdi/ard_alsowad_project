@@ -125,10 +125,19 @@ namespace IFarmer.PL
 
         private void services_Load(object sender, EventArgs e)
         {
-            this.bunifuDatepicker1.Value = DateTime.Now;
 
-            txtID.Text = order.getIDforInvoice().Rows[0][0].ToString();
-            createColumns();
+
+            try
+            {
+                this.bunifuDatepicker1.Value = DateTime.Now;
+
+                txtID.Text = order.getIDforInvoice().Rows[0][0].ToString();
+                createColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void txtQte_TextChanged(object sender, EventArgs e)

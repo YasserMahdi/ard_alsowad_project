@@ -79,9 +79,16 @@ namespace IFarmer.PL
 
         private void BtnCash_Click_1(object sender, EventArgs e)
         {
-            PL.DirSales frm = new DirSales();
+            try
+            {
+                PL.DirSales frm = new DirSales();
 
-            frm.ShowDialog();
+                frm.ShowDialog();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void bunifuFlatButton3_Click(object sender, EventArgs e)

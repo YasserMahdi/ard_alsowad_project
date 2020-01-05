@@ -30,11 +30,11 @@ namespace IFarmer.PL
             try
             {
                 this.dataGridView1.DataSource = order.showInvoice_details(id);
-                this.txtName.Text = order.showInvoice_head(id).Rows[0][3].ToString();
-                this.txtNote.Text = order.showInvoice_head(id).Rows[0][2].ToString();
                 this.txtID.Text = order.showInvoice_head(id).Rows[0][0].ToString();
-                this.txtTotal.Text = order.showInvoice_head(id).Rows[0][4].ToString();
-                txtAmountReceived.Text = order.showInvoice_head(id).Rows[0][5].ToString();
+                this.txtNote.Text = order.showInvoice_head(id).Rows[0][2].ToString();
+                this.txtName.Text = order.showInvoice_head(id).Rows[0][3].ToString();
+                this.txtTotal.Text = order.showInvoice_head(id).Rows[0][5].ToString();
+                txtAmountReceived.Text = order.showInvoice_head(id).Rows[0][6].ToString();
                 this.bunifuDatepicker1.Value = Convert.ToDateTime(order.showInvoice_head(id).Rows[0][1].ToString());
 
 

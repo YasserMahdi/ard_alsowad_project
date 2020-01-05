@@ -191,7 +191,7 @@
             this.metroGrid1.EnableHeadersVisualStyles = false;
             this.metroGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen;
             this.metroGrid1.HeaderForeColor = System.Drawing.Color.SeaGreen;
-            this.metroGrid1.Location = new System.Drawing.Point(34, 172);
+            this.metroGrid1.Location = new System.Drawing.Point(37, 163);
             this.metroGrid1.Name = "metroGrid1";
             this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.metroGrid1.RowTemplate.Height = 26;

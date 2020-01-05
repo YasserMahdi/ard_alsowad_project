@@ -13,7 +13,7 @@ namespace IFarmer.PL
     public partial class Inventory : MetroFramework.Forms.MetroForm
     {
         BL.categories cat = new BL.categories();
-        BL.inputClass seed = new BL.inputClass();
+        BL.inputClass InPut = new BL.inputClass();
         BL.CatClass Categorie = new BL.CatClass();
         BL.StoresaMnagement StoreMng = new BL.StoresaMnagement();
         public Inventory()
@@ -36,20 +36,9 @@ namespace IFarmer.PL
 
         private void bunifuCustomDataGrid1_DoubleClick(object sender, EventArgs e)
         {
-            PL.DisplayMaterials frm = new DisplayMaterials();
-            try
-            {
-                //string cheack = seed.BringSeedsByType(this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString()).Rows[0][0].ToString();
-                frm.dataGridView1.DataSource =
-                seed.BringSeedsByType(this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString(), comboBox1.SelectedValue.ToString());
-                frm.ShowDialog();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
+            PL.DisplayMaterials frm = new DisplayMaterials(this.bunifuCustomDataGrid1.CurrentRow.Cells[1].Value.ToString(), comboBox1.SelectedValue.ToString());
+            frm.ShowDialog();
+       
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -68,11 +57,17 @@ namespace IFarmer.PL
         private void seedAndMaterialForm_Load(object sender, EventArgs e)
         {
 
-             
-            this.comboBox1.DisplayMember = "store";
-            this.comboBox1.ValueMember = "id";
-            this.comboBox1.DataSource = StoreMng.selectStore();
-            this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo(comboBox1.SelectedValue.ToString());
+            try
+            {
+                this.comboBox1.DisplayMember = "store";
+                this.comboBox1.ValueMember = "id";
+                this.comboBox1.DataSource = StoreMng.selectStore();
+                this.bunifuCustomDataGrid1.DataSource = cat.getCategoriesInfo(comboBox1.SelectedValue.ToString());
+            }
+            catch
+            {
+
+            }
 
         }
 

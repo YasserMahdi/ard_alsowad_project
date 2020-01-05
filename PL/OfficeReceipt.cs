@@ -19,7 +19,15 @@ namespace IFarmer.PL
 
         private void OfficeReceipt_Load(object sender, EventArgs e)
         {
-            this.dataGridView1.DataSource = comp.fetchCompanyNames();
+
+            try
+            {
+                this.dataGridView1.DataSource = comp.fetchCompanyNames();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)

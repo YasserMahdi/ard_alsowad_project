@@ -280,6 +280,12 @@ namespace IFarmer.PL
                     //    }
 
                     //}
+                    BL.invoices.Checking cheack = new BL.invoices.Checking();
+                    if (cheack.verifyQte(this.txtMatName.Text, this.txtQte.Text).Rows.Count <= 0) {
+                        MessageBox.Show(" الكمية في المخزن غير كافية", "تنبية", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -435,9 +441,16 @@ namespace IFarmer.PL
         private void DirSales_Load(object sender, EventArgs e)
         {
             //txtID.Text =DateTime.Now.Year.ToString() +"/"+ "NO" +"/" + ord.getIDforInvoice().Rows[0][0].ToString();
-            txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
+            try
+            {
+                txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
 
-            this.bunifuDatepicker1.Value = DateTime.Now;
+                this.bunifuDatepicker1.Value = DateTime.Now;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 

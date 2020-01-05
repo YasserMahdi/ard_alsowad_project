@@ -60,7 +60,7 @@
             // DateTime1
             // 
             this.DateTime1.Location = new System.Drawing.Point(1102, 63);
-            this.DateTime1.MinimumSize = new System.Drawing.Size(0, 30);
+            this.DateTime1.MinimumSize = new System.Drawing.Size(4, 30);
             this.DateTime1.Name = "DateTime1";
             this.DateTime1.Size = new System.Drawing.Size(200, 30);
             this.DateTime1.TabIndex = 2;

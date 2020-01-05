@@ -24,9 +24,9 @@ namespace IFarmer.PL.admin
             {
                 this.dataGridView1.DataSource = selectusr.SelUsers();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Load Users" ,MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message, "Load Users", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -71,10 +71,17 @@ namespace IFarmer.PL.admin
 
         private void BtnUpdateUserInfo_Click(object sender, EventArgs e)
         {
-            PL.Register frm = new Register(this.dataGridView1.CurrentRow.Cells[0].Value.ToString(), this.dataGridView1.CurrentRow.Cells[1].Value.ToString(),
-                this.dataGridView1.CurrentRow.Cells[2].Value.ToString(), this.dataGridView1.CurrentRow.Cells[3].Value.ToString()
-                );
-            frm.ShowDialog();
+            try
+            {
+                PL.Register frm = new Register(this.dataGridView1.CurrentRow.Cells[0].Value.ToString(), this.dataGridView1.CurrentRow.Cells[1].Value.ToString(),
+                 this.dataGridView1.CurrentRow.Cells[2].Value.ToString(), this.dataGridView1.CurrentRow.Cells[3].Value.ToString()
+                  );
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

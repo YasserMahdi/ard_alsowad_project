@@ -12,21 +12,30 @@ namespace IFarmer.PL
 {
     public partial class customerProfile : MetroFramework.Forms.MetroForm
     {
-        public int id;
+        public int CustomerNo;
         BL.orderClass order = new BL.orderClass();
         BL.debtClass debt = new BL.debtClass();
         BL.DocumentClass doc = new BL.DocumentClass();
         string State;
         private void UpDateInfo()
         {
-            this.dataGridView1.DataSource = debt.StatementOfAccount(id);
+            this.dataGridView1.DataSource = debt.StatementOfAccount(CustomerNo);
 
 
             //this.invoDataGrid1.DataSource = order.notPaidInCash(id);
 
 
             //this.docDataGrid2.DataSource = doc.unPaidDoc(id);
-            this.txtDebt.Text = string.Format("{0:n0}", (debt.getTotalInvDebt(id)));
+            double ValueOfFinalDebt;
+            if (debt.GetFinalValueOfDebt(CustomerNo).Rows.Count > 0)
+            {
+                ValueOfFinalDebt = Convert.ToDouble(debt.GetFinalValueOfDebt(CustomerNo).Rows[0][0]);
+            }
+            else
+            {
+                ValueOfFinalDebt = 0.0;
+            }
+            this.txtDebt.Text = string.Format("{0:n0}", (ValueOfFinalDebt));
         }
         public customerProfile()
         {
@@ -74,11 +83,11 @@ namespace IFarmer.PL
             try
             {
                 PL.Pay frm = new Pay();
-                frm.txtID.Text = this.id.ToString();
+                frm.txtID.Text = this.CustomerNo.ToString();
                 frm.txtName.Text = this.txtName.Text;
                 //frm.OldDebt = (debt.getTotalInvDebt(id) + debt.getTotalDocDebt(id));
-                frm.txtOldDept.Text = string.Format("{0:n0}", debt.getTotalInvDebt(id));
-                frm.temp = Convert.ToInt32(debt.getTotalInvDebt(id));
+                frm.txtOldDept.Text = string.Format("{0:n0}", debt.GetFinalValueOfDebt(CustomerNo));
+                frm.temp = Convert.ToInt32(debt.GetFinalValueOfDebt(CustomerNo));
                 frm.State = "inv";
                 frm.ShowDialog();
                 UpDateInfo();
@@ -99,7 +108,7 @@ namespace IFarmer.PL
             {
                 Report.UnpaidDocuments rpt = new Report.UnpaidDocuments();
                 Report.ReportForm frm = new Report.ReportForm();
-                rpt.SetDataSource(doc.unPaidDoc(Convert.ToInt32(id)));
+                rpt.SetDataSource(doc.unPaidDoc(Convert.ToInt32(CustomerNo)));
                 frm.crystalReportViewer1.ReportSource = rpt;
 
                 frm.ShowDialog();
@@ -113,7 +122,8 @@ namespace IFarmer.PL
 
         private void BtnInsertNewDebt_Click(object sender, EventArgs e)
         {
-
+            PL.InsertNewDebt frm = new InsertNewDebt(this.CustomerNo,this.txtName.Text);
+            frm.ShowDialog();
         }
 
         private void BtnDebtsBrows_Click(object sender, EventArgs e)
@@ -121,7 +131,7 @@ namespace IFarmer.PL
             try
             {
                 PL.customerDebtHistory frm = new customerDebtHistory();
-                frm.id = this.id;
+                frm.id = this.CustomerNo;
                 frm.oldDept = Convert.ToDouble(txtDebt.Text);
                 frm.ShowDialog();
                 //this.dataGridView1.DataSource = order.notPaidInCash(id);
@@ -140,9 +150,13 @@ namespace IFarmer.PL
 
                 try
                 {
-                    PL.updateInvoice frm = new updateInvoice();
+                    PL.updateInvoice frm = new updateInvoice(this.dataGridView1.CurrentRow.Cells[7].Value.ToString());
                     frm.id = Convert.ToInt32(this.dataGridView1.CurrentRow.Cells[0].Value);
                     frm.ShowDialog();
+                     
+                    UpDateInfo();
+                     
+                     
                 }
                 catch(Exception ex)
                 {
@@ -171,7 +185,7 @@ namespace IFarmer.PL
 
         private void statementOfAcount_Click(object sender, EventArgs e)
         {
-            PL.Customer.statementOfAcount frm = new Customer.statementOfAcount(this.id.ToString());
+            PL.Customer.statementOfAcount frm = new Customer.statementOfAcount(this.CustomerNo.ToString());
             frm.ShowDialog();
         }
     }

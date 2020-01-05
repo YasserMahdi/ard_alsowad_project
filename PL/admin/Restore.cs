@@ -31,13 +31,22 @@ namespace IFarmer.PL
         {
             try
             {
+                if (MessageBox.Show("سؤدي الى حذف البيانات الغير مدرجة ضمن ملف النسخ الاحتياطي المحدد", "عملية الاستعادة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    string query = "ALTER Database blackness SET OFFLINE WITH ROLLBACK IMMEDIATE ; Restore Database blackness from Disk='" + textpath.Text + "'";
+                    cmd = new SqlCommand(query, conn);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("تم استعادة النسخة الاحتياطية");
 
-                string query = "ALTER Database blackness SET OFFLINE WITH ROLLBACK IMMEDIATE ; Restore Database blackness from Disk='" + textpath.Text + "'";
-                cmd = new SqlCommand(query, conn);
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                MessageBox.Show("تم استعادة النسخة الاحتياطية");
+
+                } 
+                else
+                {
+                    MessageBox.Show("تم الغاء العملية", "عملية الاستعادة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
             }
             catch (Exception ex)
             {

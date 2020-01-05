@@ -23,12 +23,13 @@ C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\bin\Debug\CrystalDecisions
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\bin\Debug\stdole.dll
-C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\ard_alsowad.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.InsertNewDebt.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.UpdateStore.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Backup.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.admin.Users.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.categoriesQue.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Cpanel.resources
+C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Customer.statementOfAcount.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Invoice.NurseryDocument.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Login.resources
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.OfficeReceipt.resources
@@ -84,4 +85,5 @@ C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\ard_alsowad.cspr
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\ard_alsowad.csproj.CopyComplete
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.exe
 C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.pdb
-C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Customer.statementOfAcount.resources
+C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\ard_alsowad.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\IFarmer - Black Land\IFarmer\obj\Debug\IFarmer.PL.Inventorys.ModifyM.resources

@@ -13,7 +13,9 @@ namespace IFarmer.DAL
         SqlConnection connectobject;
         public DataAccessLayer()
         {
-            connectobject = new SqlConnection(@"server=.\SQLEXPRESS;database=blackness;integrated security=true");
+            //connectobject = new SqlConnection(@"server=.\SQLEXPRESS;database=blackness;integrated security=true");
+            connectobject = new SqlConnection(@"Data Source = 192.168.56.254\SQLEXPRESS,1433; Initial Catalog = blackness;Integrated Security = False; Connect Timeout = 3; user ID = admin; password = 3331");
+
         }
 
         public void open()

@@ -29,8 +29,8 @@ namespace IFarmer.PL
                 this.txtName.Text = order.showInvoice_head(docID).Rows[0][3].ToString();
                 this.txtNote.Text = order.showInvoice_head(docID).Rows[0][2].ToString();
                 this.txtID.Text = order.showInvoice_head(docID).Rows[0][0].ToString();
-                this.txtTotal.Text = order.showInvoice_head(docID).Rows[0][4].ToString();
-                txtAmountReceived.Text = order.showInvoice_head(docID).Rows[0][5].ToString();
+                this.txtTotal.Text = order.showInvoice_head(docID).Rows[0][5].ToString();
+                txtAmountReceived.Text = order.showInvoice_head(docID).Rows[0][6].ToString();
                 this.bunifuDatepicker1.Value = Convert.ToDateTime(order.showInvoice_head(docID).Rows[0][1].ToString());
 
                 //information of order Tail

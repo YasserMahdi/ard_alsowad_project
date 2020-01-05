@@ -16,7 +16,15 @@ namespace IFarmer.PL
         public Companies()
         {
             InitializeComponent();
-            this.dataGridView1.DataSource= comp.fetchCompanyNames();
+            try
+            {
+                this.dataGridView1.DataSource = comp.fetchCompanyNames();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)

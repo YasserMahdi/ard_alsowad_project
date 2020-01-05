@@ -34,6 +34,20 @@ namespace IFarmer.BL.Reports
                     result.Merge(Dt);
                 }
             }
+        
+            foreach (DataRow row in result.Rows)
+            {
+                try
+                {
+                    row["العسر الاساسي"] = String.Format("{0:n0}", Convert.ToDouble(row["العسر الاساسي"]));
+                    row["المبلغ"] = String.Format("{0:n0}", Convert.ToDouble(row["المبلغ"]));
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
             return result;
 
         }
@@ -56,59 +70,7 @@ namespace IFarmer.BL.Reports
 
         }
 
-        public DataTable GetStatementPeriod(string id, DateTime start, DateTime end)
-        {
-            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
-            DataTable IdOfOoder = new DataTable();
-            IdOfOoder = getOrderOfCustomerP(id, start, end);
-            DataTable result = new DataTable();
-            if (IdOfOoder.Rows.Count > 0)
-            {
-                for (int i = 0; i <= IdOfOoder.Rows.Count - 1; i++)
-                {
-                    SqlParameter[] param = new SqlParameter[1];
-                    String invid = IdOfOoder.Rows[i][0].ToString();
-                    param[0] = new SqlParameter("@id", SqlDbType.NVarChar, 50);
-                    param[0].Value = invid;
 
-
-
-                    DataTable Dt = new DataTable();
-                    Dt = accessobject.selectData("get_statement", param);
-                    accessobject.close();
-
-                    result.Merge(Dt);
-                }
-            }
-            return result;
-
-        }
-
-
-        public DataTable getOrderOfCustomerP(string id, DateTime start, DateTime end)
-        {
-            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
-
-            SqlParameter[] param = new SqlParameter[3];
-
-            param[0] = new SqlParameter("@id", SqlDbType.NVarChar, 50);
-            param[0].Value = id;
-
-            param[1] = new SqlParameter("@start", SqlDbType.DateTime);
-            param[1].Value = start;
-
-            param[2] = new SqlParameter("@end", SqlDbType.DateTime);
-            param[2].Value = end;
-
-
-
-            DataTable Dt = new DataTable();
-            Dt = accessobject.selectData("getOrferOfCustomer_p", param);
-            accessobject.close();
-
-            return Dt;
-
-        }
 
     }
 }

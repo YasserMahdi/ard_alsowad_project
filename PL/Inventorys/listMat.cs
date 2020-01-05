@@ -28,5 +28,10 @@ namespace IFarmer.PL
         {
             this.dataGridView1.DataSource = sam.searchMat(this.bunifuMaterialTextbox1.Text);
         }
+
+        private void listMat_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

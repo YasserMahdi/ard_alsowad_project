@@ -47,6 +47,16 @@ namespace IFarmer.PL
             frm.ShowDialog();
         }
 
-       
+        private void BtnRestore_Click(object sender, EventArgs e)
+        {
+            PL.Restore frm = new Restore();
+            frm.ShowDialog();
+        }
+
+        private void BtnRetrievalMaterials_Click(object sender, EventArgs e)
+        {
+            customerForm frm = new customerForm("RetrievalMaterials");
+            frm.ShowDialog();
+        }
     }
 }

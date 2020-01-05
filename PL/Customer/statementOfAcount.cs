@@ -11,17 +11,17 @@ namespace IFarmer.PL.Customer
 {
     public partial class statementOfAcount : MetroFramework.Forms.MetroForm
     {
-        string ID;
+        string CustomerNo;
         
         public statementOfAcount()
         {
             InitializeComponent();
         }
 
-        public statementOfAcount(string ID)
+        public statementOfAcount(string Customer_No)
         {
             InitializeComponent();
-            this.ID = ID;
+            this.CustomerNo = Customer_No;
         }
 
         private void statementOfAcount_Load(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace IFarmer.PL.Customer
             try
             {
                 BL.Customer.statementOFAcount soa = new BL.Customer.statementOFAcount();
-                this.dataGridView1.DataSource= soa.GetStatement(ID);
+                this.dataGridView1.DataSource= soa.GetStatement(CustomerNo);
             }
             catch(Exception ex)
             {
@@ -42,7 +42,7 @@ namespace IFarmer.PL.Customer
             try
             {
                 BL.Customer.statementOFAcount soa = new BL.Customer.statementOFAcount();
-                this.dataGridView1.DataSource = soa.GetStatementPeriod(ID,Convert.ToDateTime(DateTime1.Value), Convert.ToDateTime(DateTime2.Value));
+                this.dataGridView1.DataSource = soa.GetStatementPeriod(CustomerNo,Convert.ToDateTime(DateTime1.Value), Convert.ToDateTime(DateTime2.Value));
             }
             catch (Exception ex)
             {
@@ -55,7 +55,7 @@ namespace IFarmer.PL.Customer
             BL.Reports.FullStatement FullState = new BL.Reports.FullStatement();
             Report.StatOfAccount rpt = new Report.StatOfAccount();
             Report.ReportForm frm = new Report.ReportForm();
-            rpt.SetDataSource(FullState.GetStatement(this.ID));
+            rpt.SetDataSource(FullState.GetStatement(this.CustomerNo));
             frm.crystalReportViewer1.ReportSource = rpt;
             frm.ShowDialog();
 
@@ -63,10 +63,24 @@ namespace IFarmer.PL.Customer
 
         private void BtnPrintSatatentByDate_Click(object sender, EventArgs e)
         {
-            BL.Reports.FullStatement FullState = new BL.Reports.FullStatement();
-            Report.StatOfAccount rpt = new Report.StatOfAccount();
+            BL.Reports.SearchStatement SearchState = new BL.Reports.SearchStatement();
+            //Report.statOdAccByDate rpt = new Report.statOdAccByDate();
+            //Report.ReportForm frm = new Report.ReportForm();
+            //DataSet ds = new DataSet();
+            //ds.Tables.Add(SearchState.GetStatementPeriod(this.CustomerNo, this.DateTime1.Value.Date, this.DateTime2.Value.Date));
+            ////ds.Tables[0].Merge(SearchState.GetStatementPeriod(this.CustomerNo, this.DateTime1.Value.Date, this.DateTime2.Value.Date));
+            //rpt.SetDataSource(ds.Tables[0]);
+            //frm.crystalReportViewer1.ReportSource = rpt;
+            //frm.ShowDialog();
+            //BL.Reports.SearchStatement SearchState = new BL.Reports.SearchStatement();
+            BL.Customer.statementOFAcount soa = new BL.Customer.statementOFAcount();
+            Report.SStatement rpt = new Report.SStatement();
             Report.ReportForm frm = new Report.ReportForm();
-            rpt.SetDataSource(FullState.GetStatementPeriod(this.ID,this.DateTime1.Value,this.DateTime2.Value));
+            //DataSet ds = new DataSet();
+            //ds.Tables.Add(SearchState.GetStatementPeriod(this.CustomerNo, this.DateTime1.Value.Date, this.DateTime2.Value.Date));
+            //ds.Tables[0].Merge(SearchState.GetStatementPeriod(this.CustomerNo, this.DateTime1.Value.Date, this.DateTime2.Value.Date));
+            //rpt.SetDataSource(soa.getOrderOfCustomerP(this.CustomerNo,this.DateTime1.Value,DateTime2.Value));
+            rpt.SetDataSource(SearchState.GetStatementPeriod(this.CustomerNo, this.DateTime1.Value, DateTime2.Value));
             frm.crystalReportViewer1.ReportSource = rpt;
             frm.ShowDialog();
         }

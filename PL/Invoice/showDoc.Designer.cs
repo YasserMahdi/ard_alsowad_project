@@ -31,9 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(showDoc));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtReamining = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txtAmountReceived = new WindowsFormsControlLibrary1.BunifuCustomTextbox();
             this.txtCusID = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -56,15 +54,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(201, 728);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(82, 17);
-            this.bunifuCustomLabel3.TabIndex = 71;
-            this.bunifuCustomLabel3.Text = "المبلغ الباقي";
-            // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
@@ -73,15 +62,6 @@
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(79, 17);
             this.bunifuCustomLabel1.TabIndex = 69;
             this.bunifuCustomLabel1.Text = "المبلغ الكلي";
-            // 
-            // txtReamining
-            // 
-            this.txtReamining.BorderColor = System.Drawing.Color.SeaGreen;
-            this.txtReamining.Location = new System.Drawing.Point(26, 725);
-            this.txtReamining.Name = "txtReamining";
-            this.txtReamining.Size = new System.Drawing.Size(169, 24);
-            this.txtReamining.TabIndex = 68;
-            this.txtReamining.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtAmountReceived
             // 
@@ -342,9 +322,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1419, 765);
-            this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.txtReamining);
             this.Controls.Add(this.txtAmountReceived);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
@@ -368,10 +346,7 @@
         }
 
         #endregion
-
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private WindowsFormsControlLibrary1.BunifuCustomTextbox txtReamining;
         private WindowsFormsControlLibrary1.BunifuCustomTextbox txtAmountReceived;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtCusID;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;

@@ -30,5 +30,10 @@ namespace IFarmer.PL
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void UpdateStore_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

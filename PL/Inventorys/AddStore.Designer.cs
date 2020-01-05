@@ -37,9 +37,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(557, 234);
+            this.label1.Location = new System.Drawing.Point(650, 288);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 5;
             this.label1.Text = "اسم المخزن";
             // 
@@ -55,10 +55,10 @@
             this.TxtName.LineIdleColor = System.Drawing.Color.Gray;
             this.TxtName.LineMouseHoverColor = System.Drawing.Color.Blue;
             this.TxtName.LineThickness = 3;
-            this.TxtName.Location = new System.Drawing.Point(180, 203);
-            this.TxtName.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtName.Location = new System.Drawing.Point(210, 250);
+            this.TxtName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(370, 44);
+            this.TxtName.Size = new System.Drawing.Size(432, 54);
             this.TxtName.TabIndex = 4;
             this.TxtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -80,24 +80,27 @@
             this.BtnSave.IdleFillColor = System.Drawing.Color.White;
             this.BtnSave.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.BtnSave.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.BtnSave.Location = new System.Drawing.Point(289, 256);
-            this.BtnSave.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnSave.Location = new System.Drawing.Point(337, 315);
+            this.BtnSave.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(181, 41);
+            this.BtnSave.Size = new System.Drawing.Size(211, 50);
             this.BtnSave.TabIndex = 6;
             this.BtnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // AddStore
+            // UpdateStore
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 554);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtName);
-            this.Name = "AddStore";
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Name = "UpdateStore";
+            this.Padding = new System.Windows.Forms.Padding(23, 74, 23, 25);
             this.Text = "AddStore";
+            this.Load += new System.EventHandler(this.UpdateStore_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

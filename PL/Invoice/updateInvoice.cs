@@ -16,6 +16,7 @@ namespace IFarmer.PL
         DataTable dt = new DataTable();
         string TotalAmount;
         string Recived;
+        String Type;
         public int totalMoney;
 
 
@@ -54,6 +55,12 @@ namespace IFarmer.PL
         public updateInvoice()
         {
             InitializeComponent();
+        }
+
+        public updateInvoice(string Type)
+        {
+            InitializeComponent();
+            this.Type = Type;
         }
 
         private void updateInvoice_Load(object sender, EventArgs e)
@@ -258,7 +265,7 @@ namespace IFarmer.PL
                                       where row.Cells[3].FormattedValue.ToString() != string.Empty
                                       select (Convert.ToDouble(row.Cells[3].FormattedValue))).Sum().ToString();
 
-                txtTotal.Text = String.Format("{0:n0}", Convert.ToInt32(totalamount));
+                txtTotal.Text = totalamount.ToString();
                 totalMoney = Convert.ToInt32(totalamount);
 
             }
@@ -273,11 +280,12 @@ namespace IFarmer.PL
                 if (MessageBox.Show("هل تريد التحديث فعلا", "التحديث ", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     int rAmount; int.TryParse(txtAmountReceived.Text, out rAmount);
-                    BL.invoices.UpdateOrder update = new BL.invoices.UpdateOrder();
+                    int TheRest = Convert.ToInt32(txtTotal.Text) - rAmount;
+                     BL.invoices.UpdateOrder update = new BL.invoices.UpdateOrder();
                     update.DeleteOrder(this.txtID.Text);
                     //insert the informations of invoive
                     order.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(this.txtTotal.Text),
-                        Convert.ToDouble(this.txtAmountReceived.Text), "non", bunifuDatepicker1.Value, "Office");
+                        Convert.ToDouble(this.txtAmountReceived.Text), TheRest == 0 ? "Yes" : "No", bunifuDatepicker1.Value, this.Type);
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
@@ -290,7 +298,7 @@ namespace IFarmer.PL
                            );
 
                     }
-                    string OldDebt = Convert.ToString(Convert.ToDouble(TotalAmount) - Convert.ToDouble(Recived));
+                    string OldDebt = Convert.ToString(Convert.ToDouble(txtTotal.Text) - Convert.ToDouble(Recived));
                     BL.invoices.UpdateDebtsAffterDeleteOrderMat UpdateDebts = new BL.invoices.UpdateDebtsAffterDeleteOrderMat();
                     UpdateDebts.UpdateDebts(this.txtCusID.Text, this.txtID.Text, OldDebt, Convert.ToDouble(Convert.ToDouble(txtTotal.Text) - Convert.ToDouble(txtAmountReceived.Text)), this.bunifuDatepicker1.Value);
 

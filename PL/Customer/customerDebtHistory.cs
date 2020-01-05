@@ -15,6 +15,7 @@ namespace IFarmer.PL
         BL.debtClass debt = new BL.debtClass();
         BL.orderClass order = new BL.orderClass();
         BL.DocumentClass doc = new BL.DocumentClass();
+        BL.Reports.DebtReports DRpt = new BL.Reports.DebtReports();
         public int id;
         public double oldDept;
         public customerDebtHistory()
@@ -43,7 +44,7 @@ namespace IFarmer.PL
             frm.txtID.Text = this.id.ToString() ;
             frm.txtName.Text = this.bunifuCustomDataGrid1.CurrentRow.Cells[0].Value.ToString();
             //frm.OldDebt = (debt.getTotalInvDebt(id) + debt.getTotalDocDebt(id));
-            frm.txtOldDept.Text = string.Format("{0:n0}", debt.getTotalInvDebt(id));
+            frm.txtOldDept.Text = string.Format("{0:n0}", debt.GetFinalValueOfDebt(id));
             frm.State = "inv";
             frm.ShowDialog();
         }
@@ -66,8 +67,8 @@ namespace IFarmer.PL
             try
             {
                 Report.ReportForm frm = new Report.ReportForm();
-                Report.debt rpt = new Report.debt();
-                rpt.SetDataSource(debt.printDebt(id));
+                Report.PrintDebts rpt = new Report.PrintDebts();
+                rpt.SetDataSource(DRpt.GetDebtInfoforPrint(id));
                 frm.crystalReportViewer1.ReportSource = rpt;
                 frm.ShowDialog();
                 //frm.crystalReportViewer1.PrintReport();

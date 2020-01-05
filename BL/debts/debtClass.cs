@@ -498,29 +498,29 @@ namespace IFarmer.BL
 
         }
 
-        public DataTable printDebt(int cus_id)
-        {
-            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+        //public DataTable printDebt(int cus_id)
+        //{
+        //    DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
       
-            double totalInv = getTotalInvDebt(cus_id);
+        //    double totalInv = GetFinalValueOfDebt(cus_id);
 
 
-            SqlParameter[] param = new SqlParameter[1];
+        //    SqlParameter[] param = new SqlParameter[1];
 
-            param[0] = new SqlParameter("@user_id", SqlDbType.Int);
-            param[0].Value = cus_id;
+        //    param[0] = new SqlParameter("@user_id", SqlDbType.Int);
+        //    param[0].Value = cus_id;
 
-            DataTable Dt = new DataTable();
-            Dt = accessobject.selectData("printDebt", param);
-            accessobject.close();
-            DataRow r = Dt.NewRow();
-            //r[1] = string.Format("{0:n0}", (totalInv+totalDoc));
-            //r[6] = string.Format("{0:n0}", totalDoc.ToString());
-            r[0] = string.Format("{0:n0}", totalInv.ToString());
-            Dt.Rows.Add(r);
-            return Dt;
+        //    DataTable Dt = new DataTable();
+        //    Dt = accessobject.selectData("printDebt", param);
+        //    accessobject.close();
+        //    DataRow r = Dt.NewRow();
+        //    //r[1] = string.Format("{0:n0}", (totalInv+totalDoc));
+        //    //r[6] = string.Format("{0:n0}", totalDoc.ToString());
+        //    r[0] = string.Format("{0:n0}", totalInv.ToString());
+        //    Dt.Rows.Add(r);
+        //    return Dt;
 
-        }
+        //}
 
 
         public double getTotalDocDebt(int cus_id)
@@ -545,22 +545,22 @@ namespace IFarmer.BL
 
 
 
-        public double getTotalInvDebt(int cus_id)
+        public DataTable GetFinalValueOfDebt(int cus_id)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
-            DataTable Dt_not_paid_invo = this.sel_nto_paid_innvoice(cus_id);
+
+            SqlParameter[] param = new SqlParameter[1];
+
+            param[0] = new SqlParameter("@id", SqlDbType.NVarChar,50);
+            param[0].Value = cus_id;
 
 
-            double total =0;
-            foreach (DataRow row in Dt_not_paid_invo.Rows)
-            {
-                if (row["isCashed"].Equals( "NO"))
-                {
-                   
-                    total += (Convert.ToDouble(row["total_amount"]) - Convert.ToDouble(row["recived"]));
-                }
-            }
-            return total;
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("get_final_debt", param);
+            accessobject.close();
+
+            return Dt;
+
         }
 
 
