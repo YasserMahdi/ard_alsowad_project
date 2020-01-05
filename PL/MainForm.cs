@@ -12,7 +12,7 @@ namespace IFarmer.PL
 {
     public partial class MainForm : MetroFramework.Forms.MetroForm
     {
-        string role = "admin";
+        string role;
         public MainForm()
         {
             InitializeComponent();

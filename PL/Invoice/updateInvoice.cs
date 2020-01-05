@@ -298,7 +298,7 @@ namespace IFarmer.PL
                            );
 
                     }
-                    string OldDebt = Convert.ToString(Convert.ToDouble(txtTotal.Text) - Convert.ToDouble(Recived));
+                    string OldDebt = Convert.ToString(Convert.ToDouble(TotalAmount) - Convert.ToDouble(Recived));
                     BL.invoices.UpdateDebtsAffterDeleteOrderMat UpdateDebts = new BL.invoices.UpdateDebtsAffterDeleteOrderMat();
                     UpdateDebts.UpdateDebts(this.txtCusID.Text, this.txtID.Text, OldDebt, Convert.ToDouble(Convert.ToDouble(txtTotal.Text) - Convert.ToDouble(txtAmountReceived.Text)), this.bunifuDatepicker1.Value);
 
