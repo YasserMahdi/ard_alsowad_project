@@ -57,5 +57,18 @@ namespace IFarmer.PL
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                BL.store.Search srch = new BL.store.Search();
+                this.dataGridView1.DataSource = srch.SearchInMat(TxtSearch.Text, strId, ClsId);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

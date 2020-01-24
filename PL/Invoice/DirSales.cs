@@ -253,9 +253,20 @@ namespace IFarmer.PL
                 //Seasonal_disbursements = 0.0;
 
 
-                txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
+                
                 //txtID.Text = DateTime.Now.Year.ToString() + "/" + "NO" + "/" + ord.getIDforInvoice().Rows[0][0].ToString();
                 //txtID.Text = DateTime.Now.Year.ToString() + DateTime.Now.Month + ord.getIDforInvoice().Rows[0][0].ToString();
+
+                BL.CashBox.Months mnth = new BL.CashBox.Months();
+                mnth.set_new_month();
+                DataTable LastMonth = mnth.sel_last_month();
+                BL.CashBox.BoxInsertion insrt = new BL.CashBox.BoxInsertion();
+                insrt.SetCash(Convert.ToInt32(txtAmountReceived.Text), "Office", this.bunifuDatepicker1.Value, this.txtID.Text,
+                    LastMonth.Rows[0][0].ToString());
+
+
+                txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
+
             }
             catch (Exception ex)
             {

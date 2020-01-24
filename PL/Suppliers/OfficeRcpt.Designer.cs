@@ -127,7 +127,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(172, 27);
             this.label7.TabIndex = 33;
-            this.label7.Text = "سعر البيغ";
+            this.label7.Text = "سعر البيع";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
@@ -241,7 +241,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(181, 27);
             this.label3.TabIndex = 26;
-            this.label3.Text = "سعر المفرد";
+            this.label3.Text = "سعر الشراء";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 

@@ -28,7 +28,7 @@ namespace IFarmer.PL
                 try
                 {
 
-                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(TxtSale.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
+                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(this.txtMatPrice.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
                 }
                 catch (Exception ex)
                 {

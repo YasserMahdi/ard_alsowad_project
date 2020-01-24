@@ -125,5 +125,11 @@ namespace IFarmer.PL
             PL.stores frm = new stores();
             frm.ShowDialog();
         }
+
+        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
+        {
+            BL.store.Search srch = new BL.store.Search();
+            this.bunifuCustomDataGrid1.DataSource = srch.SearchInCat(this.bunifuMaterialTextbox1.Text,this.comboBox1.SelectedValue.ToString());
+        }
     }
 }

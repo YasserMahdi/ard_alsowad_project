@@ -58,5 +58,11 @@ namespace IFarmer.PL
             customerForm frm = new customerForm("RetrievalMaterials");
             frm.ShowDialog();
         }
+
+        private void BtnBox_Click(object sender, EventArgs e)
+        {
+            PL.Box.CashBox frm = new Box.CashBox();
+            frm.ShowDialog();
+        }
     }
 }

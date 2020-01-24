@@ -210,6 +210,7 @@
             this.bunifuMaterialTextbox1.TabIndex = 5;
             this.bunifuMaterialTextbox1.Text = "البحث";
             this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bunifuMaterialTextbox1.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox1_OnValueChanged);
             // 
             // comboBox1
             // 

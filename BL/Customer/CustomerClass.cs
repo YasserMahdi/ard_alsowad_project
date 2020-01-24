@@ -94,7 +94,7 @@ namespace IFarmer.BL
             param[0].Value = name;
 
             DataTable Dt = new DataTable();
-            Dt = accessobject.selectData("searchINcostumer", param);
+            Dt = accessobject.selectData("search_in_customer", param);
             accessobject.close();
 
             //foreach (DataRow row in Dt.Rows)

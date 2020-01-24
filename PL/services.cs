@@ -316,6 +316,13 @@ namespace IFarmer.PL
                 //Seasonal_disbursements = 0.0;
 
 
+                BL.CashBox.Months mnth = new BL.CashBox.Months();
+                mnth.set_new_month();
+                DataTable LastMonth = mnth.sel_last_month();
+                BL.CashBox.BoxInsertion insrt = new BL.CashBox.BoxInsertion();
+                insrt.SetCash(Convert.ToInt32(txtAmountReceived.Text), "Service", this.bunifuDatepicker1.Value, this.txtID.Text,
+                    LastMonth.Rows[0][0].ToString());
+
                 txtID.Text = order.getIDforInvoice().Rows[0][0].ToString();
             }
             catch (Exception ex)

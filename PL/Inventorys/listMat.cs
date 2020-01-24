@@ -24,14 +24,16 @@ namespace IFarmer.PL
             this.Close();
         }
 
-        private void bunifuMaterialTextbox1_OnValueChanged(object sender, EventArgs e)
-        {
-            this.dataGridView1.DataSource = sam.searchMat(this.bunifuMaterialTextbox1.Text);
-        }
+        
 
         private void listMat_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = sam.searchMat(TxtSearch.Text);
         }
     }
 }

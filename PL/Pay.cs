@@ -44,6 +44,11 @@ namespace IFarmer.PL
                         
                         debt.set_RepaymentForInvoice_in_the_tables(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
 
+                        BL.CashBox.Months mnth = new BL.CashBox.Months();
+                        mnth.set_new_month();
+                        DataTable LastMonth = mnth.sel_last_month();
+                        BL.CashBox.BoxInsertion insrt = new BL.CashBox.BoxInsertion();
+                        insrt.SetCash(Convert.ToInt32(txtPay.Text), "سداد", DateTime.Now, LastMonth.Rows[0][0].ToString());
                         MessageBox.Show(" تمت العملية بنجاح", "السداد", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }

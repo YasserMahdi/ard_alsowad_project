@@ -41,12 +41,15 @@
             this.BtnRetrievalMaterials = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.BtnRestore = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.BtnBox = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnSupliers
@@ -337,11 +340,60 @@
             this.BtnRestore.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnRestore.Click += new System.EventHandler(this.BtnRestore_Click);
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox7.Controls.Add(this.BtnBox);
+            this.groupBox7.Location = new System.Drawing.Point(554, 540);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(357, 117);
+            this.groupBox7.TabIndex = 9;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "النسخ الاحتياطي";
+            // 
+            // BtnBox
+            // 
+            this.BtnBox.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BtnBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBox.BorderRadius = 7;
+            this.BtnBox.ButtonText = "الصندوق";
+            this.BtnBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBox.DisabledColor = System.Drawing.Color.Gray;
+            this.BtnBox.Iconcolor = System.Drawing.Color.Transparent;
+            this.BtnBox.Iconimage = ((System.Drawing.Image)(resources.GetObject("BtnBox.Iconimage")));
+            this.BtnBox.Iconimage_right = null;
+            this.BtnBox.Iconimage_right_Selected = null;
+            this.BtnBox.Iconimage_Selected = null;
+            this.BtnBox.IconMarginLeft = 0;
+            this.BtnBox.IconMarginRight = 0;
+            this.BtnBox.IconRightVisible = true;
+            this.BtnBox.IconRightZoom = 0D;
+            this.BtnBox.IconVisible = true;
+            this.BtnBox.IconZoom = 70D;
+            this.BtnBox.IsTab = false;
+            this.BtnBox.Location = new System.Drawing.Point(37, 24);
+            this.BtnBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.BtnBox.Name = "BtnBox";
+            this.BtnBox.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.BtnBox.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.BtnBox.OnHoverTextColor = System.Drawing.Color.White;
+            this.BtnBox.selected = false;
+            this.BtnBox.Size = new System.Drawing.Size(281, 70);
+            this.BtnBox.TabIndex = 3;
+            this.BtnBox.Text = "الصندوق";
+            this.BtnBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnBox.Textcolor = System.Drawing.Color.White;
+            this.BtnBox.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBox.Click += new System.EventHandler(this.BtnBox_Click);
+            // 
             // Cpanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 700);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -357,6 +409,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,5 +428,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton BtnRetrievalMaterials;
         private System.Windows.Forms.GroupBox groupBox6;
         private Bunifu.Framework.UI.BunifuFlatButton BtnRestore;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private Bunifu.Framework.UI.BunifuFlatButton BtnBox;
     }
 }

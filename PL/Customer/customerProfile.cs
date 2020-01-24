@@ -20,7 +20,7 @@ namespace IFarmer.PL
         private void UpDateInfo()
         {
             this.dataGridView1.DataSource = debt.StatementOfAccount(CustomerNo);
-
+            
 
             //this.invoDataGrid1.DataSource = order.notPaidInCash(id);
 
@@ -86,8 +86,8 @@ namespace IFarmer.PL
                 frm.txtID.Text = this.CustomerNo.ToString();
                 frm.txtName.Text = this.txtName.Text;
                 //frm.OldDebt = (debt.getTotalInvDebt(id) + debt.getTotalDocDebt(id));
-                frm.txtOldDept.Text = string.Format("{0:n0}", debt.GetFinalValueOfDebt(CustomerNo));
-                frm.temp = Convert.ToInt32(debt.GetFinalValueOfDebt(CustomerNo));
+                frm.txtOldDept.Text = string.Format("{0:n0}", debt.GetFinalValueOfDebt(CustomerNo).Rows[0][0]);
+                frm.temp = Convert.ToInt32(debt.GetFinalValueOfDebt(CustomerNo).Rows[0][0]);
                 frm.State = "inv";
                 frm.ShowDialog();
                 UpDateInfo();

@@ -1,6 +1,6 @@
-﻿namespace IFarmer.PL
+﻿namespace IFarmer.PL.Box
 {
-    partial class listMat
+    partial class Cashes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TxtSearch = new System.Windows.Forms.TextBox();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,34 +37,30 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 124);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 63);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 26;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1055, 369);
-            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.Size = new System.Drawing.Size(754, 364);
+            this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // TxtSearch
+            // TxtTotal
             // 
-            this.TxtSearch.Location = new System.Drawing.Point(307, 83);
-            this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(422, 24);
-            this.TxtSearch.TabIndex = 5;
-            this.TxtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            this.TxtTotal.Location = new System.Drawing.Point(23, 433);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(237, 24);
+            this.TxtTotal.TabIndex = 2;
             // 
-            // listMat
+            // Cashes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 540);
-            this.Controls.Add(this.TxtSearch);
+            this.ClientSize = new System.Drawing.Size(800, 489);
+            this.Controls.Add(this.TxtTotal);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "listMat";
-            this.Text = "listMat";
-            this.Load += new System.EventHandler(this.listMat_Load);
+            this.Name = "Cashes";
+            this.Text = "Cashes";
+            this.Load += new System.EventHandler(this.Cashes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -73,7 +69,7 @@
 
         #endregion
 
-        public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox TxtSearch;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox TxtTotal;
     }
 }
