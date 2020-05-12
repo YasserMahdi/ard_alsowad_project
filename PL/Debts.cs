@@ -50,6 +50,7 @@ namespace IFarmer.PL
             try
             {
                 this.bunifuCustomDataGrid1.DataSource = debt.final_status_of_debts();
+                this.TxtTotal.Text = debt.sel_debt_sumation().Rows[0][0].ToString();
 
             }catch(Exception ex)
             {

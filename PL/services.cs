@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL
 {
-    public partial class services : MetroFramework.Forms.MetroForm
+    public partial class services : MetroFramework.Forms.MetroForm, PL.Invoice.invoice
     {
         DataTable dt = new DataTable();
         BL.services.insertion insert = new BL.services.insertion();
@@ -17,7 +17,8 @@ namespace IFarmer.PL
 
         BL.orderClass order = new BL.orderClass();
         int totalMoney;
-        void clearBoxes()
+        public int click;
+        public void clearBoxes()
         {
 
             txtMatName.Clear();
@@ -26,7 +27,7 @@ namespace IFarmer.PL
             txtAmount.Clear();
         }
 
-        void calculateAmount()
+        public void calculateAmount()
         {
             if (txtQte.Text != string.Empty && txtMatPrice.Text != string.Empty)
 
@@ -41,7 +42,7 @@ namespace IFarmer.PL
                 }
         }
 
-        void createColumns()
+        public void createColumns()
         {
             dt.Columns.Add("Column1");// اسم المادة
             dt.Columns.Add("Column2");//  qte
@@ -55,6 +56,7 @@ namespace IFarmer.PL
         public services()
         {
             InitializeComponent();
+            click = 0;
         }
 
         private void txtQte_KeyDown(object sender, KeyEventArgs e)
@@ -84,7 +86,7 @@ namespace IFarmer.PL
 
                     string Priceformatted = string.Format("{0:n0}", Convert.ToDouble(txtMatPrice.Text));
 
- 
+
                     r[0] = txtMatName.Text;
                     r[1] = Priceformatted;
                     r[2] = txtQte.Text;
@@ -198,8 +200,7 @@ namespace IFarmer.PL
                 MessageBox.Show(ex.Message + " \n Error in Text changed");
             }
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        public void Save()
         {
             try
             {
@@ -226,7 +227,7 @@ namespace IFarmer.PL
                     {
 
 
-                        order.add_order_detail(Convert.ToInt32(0), dataGridView1.Rows[i].Cells[0].Value.ToString(),txtID.Text
+                        order.add_order_detail(Convert.ToInt32(0), dataGridView1.Rows[i].Cells[0].Value.ToString(), txtID.Text
                             , Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)
                            );
@@ -264,7 +265,7 @@ namespace IFarmer.PL
                     {
 
 
-                        order.add_order_detail(Convert.ToInt32(0), dataGridView1.Rows[i].Cells[0].Value.ToString(),txtID.Text
+                        order.add_order_detail(Convert.ToInt32(0), dataGridView1.Rows[i].Cells[0].Value.ToString(), txtID.Text
                             , Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[1].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value)
                            );
@@ -272,7 +273,7 @@ namespace IFarmer.PL
                     }
 
                     BL.debtClass debt = new BL.debtClass();
-                    debt.add_debt_detail( txtID.Text, Convert.ToInt32(txtCusID.Text)
+                    debt.add_debt_detail(txtID.Text, Convert.ToInt32(txtCusID.Text)
                         , Convert.ToDouble(totalMoney - rAmount));
 
 
@@ -331,10 +332,46 @@ namespace IFarmer.PL
             }
 
         }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+
+            if (click == 0)
+            {
+                Save();
+                click += 1;
+            }
+            else
+            {
+                if (MessageBox.Show("تم الحفظ بالفعل , هل تريد طباعة الفاتورة ؟ ", "الحفظ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Report.invoice rpt = new Report.invoice();
+                        Report.ReportForm frm = new Report.ReportForm();
+                        rpt.SetDataSource(order.printinvoice(Convert.ToInt32(this.txtID.Text)));
+                        frm.crystalReportViewer1.ReportSource = rpt;
+
+                        frm.ShowDialog();
+                        //frm.crystalReportViewer1.PrintReport();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            click = 0;
         }
     }
 }

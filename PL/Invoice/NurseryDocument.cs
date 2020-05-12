@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace IFarmer.PL.Invoice
 {
-    public partial class NurseryDocument : MetroFramework.Forms.MetroForm
+    public partial class NurseryDocument : MetroFramework.Forms.MetroForm,PL.Invoice.invoice
     {
 
         BL.DocumentClass doc = new BL.DocumentClass();
@@ -18,16 +18,17 @@ namespace IFarmer.PL.Invoice
         BL.Report rpt = new BL.Report();
         DataTable dt = new DataTable();
         //double Seasonal_disbursements;
+        public int click;
 
         int totalMoney;
-        void calculateAmount()
+        public void calculateAmount()
         {
             if (txtQte.Text != string.Empty && txtMatPrice.Text != string.Empty)
 
                 try
                 {
 
-                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(txtMatPrice.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
+                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(txtMatPrice.Text) * Convert.ToDouble(txtQte.Text))).ToString()));
                 }
                 catch (Exception ex)
                 {
@@ -35,7 +36,7 @@ namespace IFarmer.PL.Invoice
                 }
         }
 
-        void clearBoxes()
+        public void clearBoxes()
         {
             txtMatNo.Clear();
             txtMatName.Clear();
@@ -44,7 +45,7 @@ namespace IFarmer.PL.Invoice
             txtAmount.Clear();
         }
 
-        void createColumns()
+        public void createColumns()
         {
             dt.Columns.Add("Column1"); //رقم المادة
             dt.Columns.Add("Column2");// اسم المادة
@@ -62,6 +63,7 @@ namespace IFarmer.PL.Invoice
         {
             InitializeComponent();
             createColumns();
+            click = 0;
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -168,7 +170,7 @@ namespace IFarmer.PL.Invoice
 
         private void txtQte_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
             {
                 e.Handled = true;
             }
@@ -225,8 +227,7 @@ namespace IFarmer.PL.Invoice
                 MessageBox.Show(ex.Message + " \n Error in Text changed");
             }
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        public void Save()
         {
             try
             {
@@ -253,8 +254,8 @@ namespace IFarmer.PL.Invoice
                     {
 
 
-                        order.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), dataGridView1.Rows[i].Cells[1].Value.ToString(),  txtID.Text
-                            , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
+                        order.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), dataGridView1.Rows[i].Cells[1].Value.ToString(), txtID.Text
+                            , Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                            );
 
@@ -292,14 +293,14 @@ namespace IFarmer.PL.Invoice
 
 
                         order.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), dataGridView1.Rows[i].Cells[1].Value.ToString(), txtID.Text
-                            , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
+                            , Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                            );
 
                     }
 
                     BL.debtClass debt = new BL.debtClass();
-                    debt.add_debt_detail( txtID.Text, Convert.ToInt32(txtCusID.Text)
+                    debt.add_debt_detail(txtID.Text, Convert.ToInt32(txtCusID.Text)
                         , Convert.ToDouble(totalMoney - rAmount));
 
 
@@ -358,6 +359,36 @@ namespace IFarmer.PL.Invoice
             }
 
         }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            if (click == 0)
+            {
+                Save();
+                click += 1;
+            }
+            else
+            {
+                if (MessageBox.Show("تم الحفظ بالفعل , هل تريد طباعة الفاتورة ؟ ", "الحفظ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Report.invoice rpt = new Report.invoice();
+                        Report.ReportForm frm = new Report.ReportForm();
+                        rpt.SetDataSource(order.printinvoice(Convert.ToInt32(this.txtID.Text)));
+                        frm.crystalReportViewer1.ReportSource = rpt;
+
+                        frm.ShowDialog();
+                        //frm.crystalReportViewer1.PrintReport();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+        }
 
         private void NurseryDocument_Load(object sender, EventArgs e)
         {
@@ -375,6 +406,9 @@ namespace IFarmer.PL.Invoice
             this.Close();
         }
 
-       
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            click = 0;
+        }
     }
 }

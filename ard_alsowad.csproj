@@ -175,6 +175,7 @@
     <Compile Include="PL\Inventorys\ModifyM.Designer.cs">
       <DependentUpon>ModifyM.cs</DependentUpon>
     </Compile>
+    <Compile Include="PL\Invoice\invoice.cs" />
     <Compile Include="PL\Invoice\NurseryDocument.cs">
       <SubType>Form</SubType>
     </Compile>

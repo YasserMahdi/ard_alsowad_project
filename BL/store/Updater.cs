@@ -9,7 +9,7 @@ namespace IFarmer.BL.store
 {
     class Updater
     {
-        public void UpdaterMtr(string MatId,string nameMtr, Double buyPrice, Double salePrice, int quantity)
+        public void UpdaterMtr(string MatId,string nameMtr, Double buyPrice, Double salePrice, double quantity)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -24,7 +24,7 @@ namespace IFarmer.BL.store
             param[2] = new SqlParameter("@mat_sale_price", SqlDbType.Money);
             param[2].Value = salePrice;
 
-            param[3] = new SqlParameter("@Quantity", SqlDbType.Int);
+            param[3] = new SqlParameter("@Quantity", SqlDbType.Decimal);
             param[3].Value = quantity;
 
             param[4] = new SqlParameter("@mat_id", SqlDbType.VarChar, 50);

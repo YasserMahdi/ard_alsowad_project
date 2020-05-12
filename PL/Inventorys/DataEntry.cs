@@ -83,7 +83,7 @@ namespace IFarmer.PL
             try
             {
                 sam.insertMtr(txtMatName.Text, Convert.ToDouble(txtBprice.Text), Convert.ToDouble(
-                txtSprice.Text), Convert.ToInt32(txtQte.Text), comboBox1.GetItemText(comboBox1.SelectedItem), ComboBoxCatStock.SelectedValue.ToString());
+                txtSprice.Text), Convert.ToDouble(txtQte.Text), comboBox1.GetItemText(comboBox1.SelectedItem), ComboBoxCatStock.SelectedValue.ToString());
                 MessageBox.Show("تمت الاضافة بنجاح", "عملية الاضافة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)

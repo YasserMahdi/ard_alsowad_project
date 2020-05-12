@@ -56,8 +56,7 @@ namespace IFarmer.PL
             {
                 Report.invoice rpt = new Report.invoice();
                 Report.ReportForm frm = new Report.ReportForm();
-                rpt.SetDataSource(order.printinvoice(Convert.ToInt32(
-                    order.getLastInvoiceForPrint().Rows[0][0])));
+                rpt.SetDataSource(order.printinvoice(Convert.ToInt32(this.txtID.Text)));
                 frm.crystalReportViewer1.ReportSource = rpt;
 
                 frm.ShowDialog();

@@ -332,6 +332,7 @@
             this.btnNew.Size = new System.Drawing.Size(181, 41);
             this.btnNew.TabIndex = 48;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // dataGridView1
             // 

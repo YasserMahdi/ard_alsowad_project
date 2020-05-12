@@ -28,7 +28,7 @@ namespace IFarmer.PL
                 try
                 {
 
-                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(this.txtMatPrice.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
+                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(this.txtMatPrice.Text) * Convert.ToDouble(txtQte.Text))).ToString()));
                 }
                 catch (Exception ex)
                 {
@@ -137,7 +137,7 @@ namespace IFarmer.PL
                 r[0] = txtMatName.Text;
                 r[1] = Priceformatted;
                 r[2] = TxtSale.Text;
-                r[3] = txtQte.Text;
+                r[3] = Convert.ToDouble(txtQte.Text);
                 r[4] = txtAmount.Text;
                 r[5] = TxtCat.Text;
                 dt.Rows.Add(r);
@@ -160,7 +160,7 @@ namespace IFarmer.PL
 
         private void txtQte_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
             {
                 e.Handled = true;
             }
@@ -184,7 +184,7 @@ namespace IFarmer.PL
                 for (int i = 0; i < DataGrid1.Rows.Count - 1; i++)
                 {
                     comp.add_comp_order_detail(Convert.ToInt32(txtOrderID.Text), this.DataGrid1.Rows[i].Cells[0].Value.ToString(),
-                       Convert.ToInt32(this.DataGrid1.Rows[i].Cells[2].Value), Convert.ToDouble(this.DataGrid1.Rows[i].Cells[1].Value), Convert.ToDouble(this.DataGrid1.Rows[i].Cells[3].Value));
+                       Convert.ToDouble(this.DataGrid1.Rows[i].Cells[2].Value), Convert.ToDouble(this.DataGrid1.Rows[i].Cells[1].Value), Convert.ToDouble(this.DataGrid1.Rows[i].Cells[3].Value));
 
 
 
@@ -207,10 +207,12 @@ namespace IFarmer.PL
                 }
                 MessageBox.Show("تمت الاضافة بنجاح", "عملية الاضافة", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 //this.txtTotalDebt.Text = dbt.fetchCompaniesDebts(txtName.Text).Rows[0][0].ToString();
-            }
-            catch
-            {
 
+                this.txtOrderID.Text = comp.getIdForCompOrder().Rows[0][0].ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
         }

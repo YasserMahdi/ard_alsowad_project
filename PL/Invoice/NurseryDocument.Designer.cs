@@ -221,7 +221,7 @@
             this.btnClose.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnClose.ActiveForecolor = System.Drawing.Color.White;
             this.btnClose.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.ButtonText = "خروج";
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -247,7 +247,7 @@
             this.btnSave.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnSave.ActiveForecolor = System.Drawing.Color.White;
             this.btnSave.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.ButtonText = "حفظ";
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -273,7 +273,7 @@
             this.btnNew.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnNew.ActiveForecolor = System.Drawing.Color.White;
             this.btnNew.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnNew.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnNew.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNew.BackgroundImage")));
             this.btnNew.ButtonText = "جديد";
             this.btnNew.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -290,6 +290,7 @@
             this.btnNew.Size = new System.Drawing.Size(181, 41);
             this.btnNew.TabIndex = 27;
             this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // dataGridView1
             // 

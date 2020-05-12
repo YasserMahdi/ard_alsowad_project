@@ -582,6 +582,33 @@ namespace IFarmer.BL
         }
 
 
+        public DataTable sel_debt_sumation()
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+             
+            accessobject.open();
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("sel_debt_sumation", null);
+            accessobject.close();
+
+            foreach (DataRow row in Dt.Rows)
+            {
+                try
+                {
+                    row["TotalDebt"] = String.Format("{0:n0}", Convert.ToDouble(row["TotalDebt"]));
+                }
+                catch
+                {
+
+                }
+            }
+
+            return Dt;
+
+        }
+
+
     }
 
 

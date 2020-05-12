@@ -10,7 +10,7 @@ namespace IFarmer.BL
 {
     class inputClass
     {
-        public void insertMtr(string nameMtr, Double buyPrice, Double salePrice, int quantity, string type ,string storeid)
+        public void insertMtr(string nameMtr, Double buyPrice, Double salePrice, double quantity, string type ,string storeid)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -25,7 +25,7 @@ namespace IFarmer.BL
             param[2] = new SqlParameter("@mat_sale_price", SqlDbType.Money);
             param[2].Value = salePrice;
 
-            param[3] = new SqlParameter("@Quantity", SqlDbType.Int);
+            param[3] = new SqlParameter("@Quantity", SqlDbType.Decimal);
             param[3].Value = quantity;
 
             param[4] = new SqlParameter("@type_name", SqlDbType.NVarChar, 50);
@@ -62,6 +62,7 @@ namespace IFarmer.BL
 
         public DataTable getMatirialInfo()
         {
+
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
 
             DataTable Dt = new DataTable();

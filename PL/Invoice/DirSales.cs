@@ -12,23 +12,25 @@ using System.Data.SqlClient;
 
 namespace IFarmer.PL
 {
-    public partial class DirSales : MetroFramework.Forms.MetroForm
+    public partial class DirSales : MetroFramework.Forms.MetroForm,PL.Invoice.invoice
     {
         BL.orderClass ord = new BL.orderClass();
         BL.CustomerClass customer = new BL.CustomerClass();
         BL.Report rpt = new BL.Report();
         DataTable dt = new DataTable();
         //double Seasonal_disbursements;
-        
+        public int click;
         int totalMoney;
-        void calculateAmount()
+
+      
+        public void calculateAmount()
         {
             if (txtQte.Text != string.Empty && txtMatPrice.Text != string.Empty)
 
                 try
                 {
 
-                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(txtMatPrice.Text) * Convert.ToInt32(txtQte.Text))).ToString()));
+                    txtAmount.Text = string.Format("{0:n0}", Convert.ToDouble(((Convert.ToDouble(txtMatPrice.Text) * Convert.ToDouble(txtQte.Text))).ToString()));
                 }
                 catch (Exception ex)
                 {
@@ -36,7 +38,7 @@ namespace IFarmer.PL
                 }
         }
 
-        void clearBoxes()
+        public void clearBoxes()
         {
             txtMatNo.Clear();
             txtMatName.Clear();
@@ -45,7 +47,7 @@ namespace IFarmer.PL
             txtAmount.Clear();
         }
 
-        void createColumns()
+        public void createColumns()
         {
             dt.Columns.Add("Column1"); //رقم المادة
             dt.Columns.Add("Column2");// اسم المادة
@@ -73,7 +75,7 @@ namespace IFarmer.PL
             this.txtAmountReceived.Enter += new System.EventHandler(this.txtAmountReceived_Enter);
             this.txtReamining.Leave += new System.EventHandler(this.txtReamining_Leave);
             this.txtReamining.Enter += new System.EventHandler(this.txtReamining_Enter);
-
+            this.click = 0;
 
 
         }
@@ -130,17 +132,17 @@ namespace IFarmer.PL
             txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
             clearBoxes();
 
-
+            click = 0;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        public void Save()
         {
             try
             {
                 //txtID.Text = ord.getIDforInvoice().Rows[0][0].ToString();
-             
-                        
-            
+
+
+
                 int rAmount; int.TryParse(txtAmountReceived.Text, out rAmount);
                 int total; int.TryParse(txtTotal.Text, out total);
                 if (txtName.Text == string.Empty)
@@ -156,15 +158,15 @@ namespace IFarmer.PL
 
                     //insert the informations of invoive
                     ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(txtTotal.Text),
-                        Convert.ToDouble(rAmount), "YES",bunifuDatepicker1.Value, "Office");
+                        Convert.ToDouble(rAmount), "YES", bunifuDatepicker1.Value, "Office");
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
 
 
-                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value),dataGridView1.Rows[i].Cells[1].Value.ToString(),  txtID.Text
-                            , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
+                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), dataGridView1.Rows[i].Cells[1].Value.ToString(), txtID.Text
+                            , Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                            );
 
@@ -194,15 +196,15 @@ namespace IFarmer.PL
                 {
                     //insert the informations of invoive
                     ord.add_order(Convert.ToInt32(txtCusID.Text), txtID.Text, txtNote.Text, Convert.ToDouble(txtTotal.Text),
-                        Convert.ToDouble(rAmount), "NO" ,bunifuDatepicker1.Value, "Office");
+                        Convert.ToDouble(rAmount), "NO", bunifuDatepicker1.Value, "Office");
 
                     //insert the detiles of invoive
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
 
 
-                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value),dataGridView1.Rows[i].Cells[1].Value.ToString(),  txtID.Text
-                            , Convert.ToInt32(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
+                        ord.add_order_detail(Convert.ToInt32(dataGridView1.Rows[i].Cells[0].Value), dataGridView1.Rows[i].Cells[1].Value.ToString(), txtID.Text
+                            , Convert.ToDouble(dataGridView1.Rows[i].Cells[3].Value), Convert.ToDouble(dataGridView1.Rows[i].Cells[2].Value)
                             , Convert.ToDouble(dataGridView1.Rows[i].Cells[4].Value)
                            );
 
@@ -253,7 +255,7 @@ namespace IFarmer.PL
                 //Seasonal_disbursements = 0.0;
 
 
-                
+
                 //txtID.Text = DateTime.Now.Year.ToString() + "/" + "NO" + "/" + ord.getIDforInvoice().Rows[0][0].ToString();
                 //txtID.Text = DateTime.Now.Year.ToString() + DateTime.Now.Month + ord.getIDforInvoice().Rows[0][0].ToString();
 
@@ -272,7 +274,36 @@ namespace IFarmer.PL
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
 
+            if(click == 0)
+            {
+                Save();
+                click += 1;
+            }
+            else
+            {
+                if (MessageBox.Show("تم الحفظ بالفعل , هل تريد طباعة الفاتورة ؟ ", "الحفظ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Report.invoice rpt = new Report.invoice();
+                        Report.ReportForm frm = new Report.ReportForm();
+                        rpt.SetDataSource(ord.printinvoice(Convert.ToInt32(this.txtID.Text)));
+                        frm.crystalReportViewer1.ReportSource = rpt;
+
+                        frm.ShowDialog();
+                        //frm.crystalReportViewer1.PrintReport();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
         }
 
         private void txtQte_KeyDown(object sender, KeyEventArgs e)
@@ -312,7 +343,7 @@ namespace IFarmer.PL
                     r[0] = txtMatNo.Text;
                     r[1] = txtMatName.Text;
                     r[2] = Priceformatted;
-                    r[3] = txtQte.Text;
+                    r[3] = Convert.ToDouble(txtQte.Text);
                     r[4] = txtAmount.Text;
                     dt.Rows.Add(r);
 
@@ -346,7 +377,7 @@ namespace IFarmer.PL
 
         private void txtQte_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 8 && e.KeyChar != 46)
             {
                 e.Handled = true;
             }

@@ -35,6 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txtSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.TxtTotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -74,9 +75,9 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.btnClose);
-            this.groupBox1.Location = new System.Drawing.Point(12, 462);
+            this.groupBox1.Location = new System.Drawing.Point(326, 461);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1018, 64);
+            this.groupBox1.Size = new System.Drawing.Size(370, 64);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "العمليات";
@@ -100,7 +101,7 @@
             this.btnClose.IdleFillColor = System.Drawing.Color.White;
             this.btnClose.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnClose.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.Location = new System.Drawing.Point(408, 15);
+            this.btnClose.Location = new System.Drawing.Point(84, 15);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(181, 41);
@@ -129,11 +130,19 @@
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSearch.OnValueChanged += new System.EventHandler(this.bunifuMaterialTextbox1_OnValueChanged);
             // 
+            // TxtTotal
+            // 
+            this.TxtTotal.Location = new System.Drawing.Point(12, 493);
+            this.TxtTotal.Name = "TxtTotal";
+            this.TxtTotal.Size = new System.Drawing.Size(195, 24);
+            this.TxtTotal.TabIndex = 3;
+            // 
             // Debts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1042, 544);
+            this.Controls.Add(this.TxtTotal);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bunifuCustomDataGrid1);
@@ -143,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -152,5 +162,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtSearch;
+        private System.Windows.Forms.TextBox TxtTotal;
     }
 }

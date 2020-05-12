@@ -18,8 +18,8 @@ namespace IFarmer.BL.invoices
             param[0] = new SqlParameter("@mat_name", SqlDbType.NVarChar,50);
             param[0].Value = MatName;
 
-            param[1] = new SqlParameter("@qte_enterd", SqlDbType.Int);
-            param[1].Value = Convert.ToInt32(qte);
+            param[1] = new SqlParameter("@qte_enterd", SqlDbType.Decimal);
+            param[1].Value = Convert.ToDecimal(qte);
 
             dt = DAL.selectData("verifyQte", param);
             DAL.close();

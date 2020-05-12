@@ -70,7 +70,7 @@ namespace IFarmer.BL
             DAL.close();
         }
 
-        public void add_comp_order_detail( int order_no,string productName ,int qte, double price, double amount)
+        public void add_comp_order_detail( int order_no,string productName ,double qte, double price, double amount)
         {
             DAL.DataAccessLayer DAL = new DAL.DataAccessLayer();
             DAL.open();
@@ -83,7 +83,7 @@ namespace IFarmer.BL
             param[1] = new SqlParameter("@order_no", SqlDbType.Int);
             param[1].Value = order_no;
 
-            param[2] = new SqlParameter("@qte", SqlDbType.Int);
+            param[2] = new SqlParameter("@qte", SqlDbType.Decimal);
             param[2].Value = qte;
 
             param[3] = new SqlParameter("@price", SqlDbType.Money);
