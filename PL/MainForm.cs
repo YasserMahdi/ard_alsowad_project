@@ -164,5 +164,10 @@ namespace IFarmer.PL
             
         }
 
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            DataGroup.TwoMonthAgo frm = new DataGroup.TwoMonthAgo();
+            frm.ShowDialog();
+        }
     }
 }

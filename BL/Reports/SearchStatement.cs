@@ -56,9 +56,9 @@ namespace IFarmer.BL.Reports
                     row["الدين الكلي"] = String.Format("{0:n0}", Convert.ToDouble(row["الدين الكلي"]));
 
                 }
-                catch (Exception ex)
+                catch  
                 {
-
+                    
                 }
             }
             return result;

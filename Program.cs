@@ -16,7 +16,7 @@ namespace IFarmer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PL.Login());
+            Application.Run(new rpt.RptFrm());
         }
     }
 }

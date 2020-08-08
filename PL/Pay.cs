@@ -42,7 +42,7 @@ namespace IFarmer.PL
 
                         debt.processOnDebtRepaymentForInvoice(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
                         
-                        debt.set_RepaymentForInvoice_in_the_tables(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text));
+                        debt.set_RepaymentForInvoice_in_the_tables(Convert.ToInt32(txtID.Text), Convert.ToDouble(txtPay.Text),txtNote.Text);
 
                         BL.CashBox.Months mnth = new BL.CashBox.Months();
                         mnth.set_new_month();

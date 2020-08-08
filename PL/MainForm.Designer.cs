@@ -45,10 +45,12 @@
             this.Btninsert = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnInventory = new Bunifu.Framework.UI.BunifuFlatButton();
             this.BtnLogo = new Bunifu.Framework.UI.BunifuImageButton();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.bunifuCards1.SuspendLayout();
             this.bunifuCards2.SuspendLayout();
             this.bunifuCards3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCards1
@@ -492,11 +494,27 @@
             this.BtnLogo.Zoom = 10;
             this.BtnLogo.Click += new System.EventHandler(this.BtnLogo_Click);
             // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.White;
+            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(1389, 77);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(49, 67);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 20;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 10;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1550, 884);
+            this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.BtnLogo);
             this.Controls.Add(this.bunifuCards1);
             this.Controls.Add(this.bunifuCards2);
@@ -514,6 +532,7 @@
             this.bunifuCards3.ResumeLayout(false);
             this.bunifuCards3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,5 +555,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
     }
 }

@@ -36,6 +36,7 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txtSearch = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.TxtTotal = new System.Windows.Forms.TextBox();
+            this.BtnAllDebt = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -74,10 +75,11 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox1.Controls.Add(this.BtnAllDebt);
             this.groupBox1.Controls.Add(this.btnClose);
             this.groupBox1.Location = new System.Drawing.Point(326, 461);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(370, 64);
+            this.groupBox1.Size = new System.Drawing.Size(464, 64);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "العمليات";
@@ -101,7 +103,7 @@
             this.btnClose.IdleFillColor = System.Drawing.Color.White;
             this.btnClose.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnClose.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose.Location = new System.Drawing.Point(84, 15);
+            this.btnClose.Location = new System.Drawing.Point(28, 17);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(181, 41);
@@ -137,6 +139,33 @@
             this.TxtTotal.Size = new System.Drawing.Size(195, 24);
             this.TxtTotal.TabIndex = 3;
             // 
+            // BtnAllDebt
+            // 
+            this.BtnAllDebt.ActiveBorderThickness = 1;
+            this.BtnAllDebt.ActiveCornerRadius = 20;
+            this.BtnAllDebt.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.BtnAllDebt.ActiveForecolor = System.Drawing.Color.White;
+            this.BtnAllDebt.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.BtnAllDebt.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BtnAllDebt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnAllDebt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnAllDebt.BackgroundImage")));
+            this.BtnAllDebt.ButtonText = "طباعة الكل";
+            this.BtnAllDebt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAllDebt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAllDebt.ForeColor = System.Drawing.Color.SeaGreen;
+            this.BtnAllDebt.IdleBorderThickness = 1;
+            this.BtnAllDebt.IdleCornerRadius = 20;
+            this.BtnAllDebt.IdleFillColor = System.Drawing.Color.White;
+            this.BtnAllDebt.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.BtnAllDebt.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.BtnAllDebt.Location = new System.Drawing.Point(242, 15);
+            this.BtnAllDebt.Margin = new System.Windows.Forms.Padding(5);
+            this.BtnAllDebt.Name = "BtnAllDebt";
+            this.BtnAllDebt.Size = new System.Drawing.Size(181, 41);
+            this.BtnAllDebt.TabIndex = 5;
+            this.BtnAllDebt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BtnAllDebt.Click += new System.EventHandler(this.BtnAllDebt_Click);
+            // 
             // Debts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -163,5 +192,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose;
         private Bunifu.Framework.UI.BunifuMaterialTextbox txtSearch;
         private System.Windows.Forms.TextBox TxtTotal;
+        private Bunifu.Framework.UI.BunifuThinButton2 BtnAllDebt;
     }
 }

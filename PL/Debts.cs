@@ -57,5 +57,23 @@ namespace IFarmer.PL
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void BtnAllDebt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Report.ReturnAllDebt rpt = new Report.ReturnAllDebt();
+                Report.ReportForm frm = new Report.ReportForm();
+                rpt.SetDataSource(debt.ReturnAllDebt());
+                frm.crystalReportViewer1.ReportSource = rpt;
+
+                frm.ShowDialog();
+                //frm.crystalReportViewer1.PrintReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

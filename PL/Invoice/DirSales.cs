@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace IFarmer.PL
@@ -34,7 +33,7 @@ namespace IFarmer.PL
                 }
                 catch (Exception ex)
                 {
-                    return;
+                    MessageBox.Show(ex.Message);
                 }
         }
 

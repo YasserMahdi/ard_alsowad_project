@@ -113,9 +113,9 @@ namespace IFarmer.BL
                 season_num = dt.Rows.Count;
                result = (moneyOf / season_num);
             }
-            catch(Exception ex)
+            catch 
             {
-                
+                 
             }
            
             for (int i = 0; i < dt.Rows.Count; i++)

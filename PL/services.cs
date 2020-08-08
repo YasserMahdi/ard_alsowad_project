@@ -38,7 +38,7 @@ namespace IFarmer.PL
                 }
                 catch (Exception ex)
                 {
-                    return;
+                    MessageBox.Show(ex.Message);
                 }
         }
 

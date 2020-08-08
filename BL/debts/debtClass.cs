@@ -410,11 +410,11 @@ namespace IFarmer.BL
 
         }
 
-        public DataTable set_RepaymentForInvoice_in_the_tables(int inv_id, double recived)
+        public DataTable set_RepaymentForInvoice_in_the_tables(int inv_id, double recived , string Note)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
 
-            SqlParameter[] param = new SqlParameter[3];
+            SqlParameter[] param = new SqlParameter[4];
 
             param[0] = new SqlParameter("@id", SqlDbType.Int);
             param[0].Value = inv_id;
@@ -424,6 +424,9 @@ namespace IFarmer.BL
 
             param[2] = new SqlParameter("@dateT", SqlDbType.DateTime);
             param[2].Value = DateTime.Now;
+
+            param[3] = new SqlParameter("@debt_note", SqlDbType.NVarChar,50);
+            param[3].Value = Note;
 
 
 
@@ -438,6 +441,8 @@ namespace IFarmer.BL
         public void processOnDebtRepaymentForInvoice(int cus_id, double mny)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+            // select all unpaid invoice 
             DataTable Dt_not_paid_invo = this.sel_nto_paid_innvoice(cus_id);
 
 
@@ -446,12 +451,18 @@ namespace IFarmer.BL
             {
                 double total = Convert.ToDouble(row["total_amount"]);
                 double revived = Convert.ToDouble(row["recived"]);
+
+                //Checking if the invoice price is equal to the current payment
+
                 if ((total - revived) <= mny)
                 {
                     row["recived"] = row["total_amount"];
                     row["isCashed"] = "Yes";
                     mny -= (Convert.ToDouble(row["total_amount"]) - Convert.ToDouble(row["recived"]));
                 }
+                //Checking if the invoice price is more than the current payment
+                // so , i have to subtract the client payment from current total price of the invoice
+
                 else if ((total - revived) > mny && mny != 0)
                 {
                     double temp = Convert.ToDouble(row["recived"]);
@@ -466,11 +477,13 @@ namespace IFarmer.BL
             {
                 if (row["isCashed"].Equals("Yes"))
                 {
+                    // Store paid invoices
                     this.DebtRepaymentForInvoice(Convert.ToInt32(row["inv_id"]), Convert.ToDouble(row["recived"]),
                         Convert.ToString(row["isCashed"]));
                 }
                 else if (row["isCashed"].Equals("NO") && Convert.ToDouble(row["recived"]) > 0)
                 {
+                    // Store unpaid invoices 
                     this.DebtRepaymentForInvoice(Convert.ToInt32(row["inv_id"]), Convert.ToDouble(row["recived"]),
                         Convert.ToString(row["isCashed"]));
                 }
@@ -478,6 +491,7 @@ namespace IFarmer.BL
 
 
         }
+
         public DataTable DebtRepaymentForDoc(int id, double mny)
         {
             DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
@@ -603,6 +617,20 @@ namespace IFarmer.BL
 
                 }
             }
+
+            return Dt;
+
+        }
+
+        public DataTable ReturnAllDebt()
+        {
+            DAL.DataAccessLayer accessobject = new DAL.DataAccessLayer();
+
+           
+
+            DataTable Dt = new DataTable();
+            Dt = accessobject.selectData("return_all_debt", null);
+            accessobject.close();
 
             return Dt;
 

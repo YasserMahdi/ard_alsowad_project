@@ -32,7 +32,7 @@ namespace IFarmer.PL.Invoice
                 }
                 catch (Exception ex)
                 {
-                    return;
+                    MessageBox.Show(ex.Message);
                 }
         }
 

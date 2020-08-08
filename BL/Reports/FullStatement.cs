@@ -43,9 +43,9 @@ namespace IFarmer.BL.Reports
                     row["المبلغ"] = String.Format("{0:n0}", Convert.ToDouble(row["المبلغ"]));
 
                 }
-                catch (Exception ex)
+                catch  
                 {
-
+                     
                 }
             }
             return result;

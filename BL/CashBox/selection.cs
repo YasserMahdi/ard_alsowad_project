@@ -62,9 +62,9 @@ namespace IFarmer.BL.CashBox
                 {
                     row["amount"] = String.Format("{0:n0}", Convert.ToDouble(row["amount"]));
                 }
-                catch (Exception ex)
+                catch 
                 {
-
+                    
                 }
             }
 
